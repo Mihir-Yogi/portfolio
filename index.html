@@ -3,87 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- icons cdn -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- custom css -->
     <link rel="stylesheet" href="stylesheet.css">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">   
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400..800&display=swap" rel="stylesheet">    
-    <title>My Portfolio</title>
+
+    <title>My portfolio</title>
 </head>
 <body>
 
-    <div class="cercle"></div>
-    <nav id="main_nav">
-        <div class="block"></div>
-        
-        <div>
-            <a>My Portfolio</a>
+    <div class="container">
 
-        </div>
-        <div class="link">
-            <a href="#">About Me</a>
-            <a href="#Skills_section">Skills</a>
-            <a href="#">Projects</a>
-        </div>
-    </nav>
+        <!------------ navigation ------------>
+        <nav id="header">
+            <div class="nav-logo">
+                <p class="nav-name">
+                    Mihir
+                </p>
+                <span>.</span>
+            </div>
 
-<section id="About_section">
+            <div id="myNavMenu" class="nav-menu">
+                <ul class="nav_menu_list">
+                    <li class="nav_list">
+                        <a href="#home" class="nav-link">Home</a>
+                        <div class="circle"></div>
+                    </li>
+                    <li class="nav_list">
+                        <a href="#about" class="nav-link">About</a>
+                        <div class="circle"></div>
+                    </li>
+                    <li class="nav_list">
+                        <a href="#projects" class="nav-link">Projects</a>
+                        <div class="circle"></div>
+                    </li>
+                    <li class="nav_list">
+                        <a href="#contact" class="nav-link">Contact</a>
+                        <div class="circle"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-button">
+                
+            </div>
 
-    <div class="about-card">
-        <span class="child_about">
-            <h1 style="font-size: 40px; margin-bottom: 10px;">Welcome to My <span style="color: #C84B31;">Portfolio</span></h1>
-            <h3>Greetings! I'm <B  style="color: #DDE6ED; font-family: 'Josefin Sans', sans-serif;"> Mihir Yogi </B>, a driven third-year Computer Engineering student at Ganpat University, with a passion for coding and website development. Proficient in languages like HTML, CSS, JavaScript, and PHP, I'm adept at crafting dynamic and visually appealing websites. I also have hands-on experience working with WordPress, creating custom themes and plugins to bring ideas to life.</h3>
-        </span>
+            <div class="nav-button">
+                <button class="btn">download CV <i class="fa-solid fa-file"></i></button>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="fa-solid fa-bars" onclick="myMenuFunction()"></i>    
+            </div>
+        </nav>
+
+        <!------------ Main ------------>
+
+        <main class="wrapper">
+
+        <!------------ Feature Box ------------>
+            <section class="featured-box" id="home">
+                <div class="featured-text">
+                    <div class="featured-text-card">
+                        <span>Mihir Yogi</span>
+                    </div>
+                    <div class="featured-name">
+                        <p>I'm <span class="typedText">Frontend Developer</span></p>
+                    </div>
+                    <div class="featured-text-info">
+                        <p>Experienced frontend developer with a passion for crafting visually stunning and user-friendly websites.</p>
+                    </div>
+                    <div class="featured-text-btn">
+                        <button class="btn">Download CV <i class="fa-solid fa-file"></i></button>
+                    </div>
+                    <div class="social_icons">
+                        <div class="icon"><i class="fa-brands fa-instagram"></i></div>
+                        <div class="icon"><i class="fa-brands fa-linkedin"></i></div>
+                        <div class="icon"><i class="fa-brands fa-square-github"></i></div>
+                    </div>
+                </div>
+
+                <div class="featured-image">
+                    <div class="image">
+                        <img src="/images/mihir.jpeg" alt="image is not available!!">
+                    </div>
+                </div>
+
+                <div class="scroll-icon-btn">
+                    <a href="#about" class="scroll-btn">
+                        <i class="fa-solid fa-computer-mouse"></i>
+                        <p>scroll down</p>
+                    </a>
+                </div>
+            </section>
+
+        <!------------ About Box ------------>
+            <section class="section" id="about">
+                <div class="top-header">
+                    <h1>About Me</h1>
+                </div>
+                <div class="row">
+
+                        <div class="about-info">
+                            <h3>My introduction</h3>
+                            <p>Iam wll-versed in HTML, CSS AND JavaScript , and other cutting edge fremworks and libraries,witch allow me to implement interactive features. Additionally, I have experience working with content management systems (CMS) like Wordpress.
+                        </p>
+
+                    
+                        <div class="about-btn">
+                            <button class="btn">
+                                Download CV 
+                                <i class="fa-solid fa-download"></i>
+                            </button>
+                        </div>
+                        </div>
+
+                    <div class="col-about">
+                        <div class="skill-box">
+                            <div class="skills-header">
+                                <h3>Frontend</h3>
+                            </div>
+                            <div class="skills-list">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>Bootstrap</span>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-box">
+                            <div class="skills-header">
+                                <h3>Backend</h3>
+                            </div>
+                            <div class="skills-list">
+                                <span>PHP</span>
+                                <span>MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!------------ Projects Box ------------>
+
+        <section class="section" id="projects">
+            <div class="top-heade">
+                <h1>Projects</h1>
+            </div>
+            <div class="project-container">
+                <div class="project-box">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <h3>Completed</h3>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!------------ Contact Box ------------>
+
+        <section class="section" id="contact">
+            <div class="top-header">
+                <h1>Get in touch</h1>
+                <span>Do you have a project in your mind , Contact me here</span>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="contact-info">
+                        <h2>Find Me <i class="fa-solid fa-turn-down"></i></h2>
+                        <p><i class="fa-solid fa-envelope"></i> Email: work.mihiryogi@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-control">
+                        <div class="form-inputs">
+                            <input type="text" class="input-field" placeholder="Name">
+                            <input type="text" class="input-field" placeholder="Email">
+                        </div>
+                        <div class="text-area">
+                            <textarea placeholder="Message"></textarea>
+                        </div>
+                        <div class="form-button">
+                            <button- class="btn">
+                                send <i class="fa-solid fa-comment"></i>
+                            </button->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </main>
+
+
+        <!------------ Footer ------------>
+
+        <footer>
+            <div class="top-footer">
+                <p>Mihir Yogi .</p>
+            </div>
+            <div class="middle-footer">
+                <ul class="footer-menu">
+                    <li class="footer_menu_list">
+                        <a href="#home">Home</a>
+                    </li>
+                    <li class="footer_menu_list">
+                        <a href="#about">About</a>
+                    </li>
+                    <li class="footer_menu_list">
+                        <a href="#projects">Projects</a>
+                    </li>
+                    <li class="footer_menu_list">
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-social-icons">
+                <div class="icon"><i class="fa-brands fa-instagram"></i></div>
+                        <div class="icon"><i class="fa-brands fa-linkedin"></i></div>
+                        <div class="icon"><i class="fa-brands fa-square-github"></i></div>
+            </div>
+
+            <div class="bottom-footer">
+                <p>Copyright &copy; <a href="#home" style="text-decoration: none;">Mihir Yogi</a>All rights reserved</p>
+            </div>
+
+            
+        </footer>
     </div>
-
-
-    <span id="image_container" > 
-        <img id="my_image" src="images/mihir.jpeg" alt="error">
-    </span>
-</section>
-
-<section id="Skills_section">
-
-    <div class="card_section">
-        <h1>hard skills</h1>
-        <div class="card_body">
-            <div class="card">
-                <h1>html</h1>
-            </div>
-            <div class="card">
-                <h1>php</h1>
-            </div>
-            <div class="card">
-                <h1>css</h1>
-            </div>
-            <div class="card">
-                <h1>JavaScript</h1>
-            </div>
-            <div class="card">
-                <h1>WordPress</h1>
-            </div>
-        </div>
-<h1>soft skills</h1>
-        <div class="card_body">
-            <div class="card">
-                <h1>Problem Solving</h1>
-            </div>
-            <div class="card">
-                <h1>Leadership</h1>
-            </div>
-            <div class="card">
-                <h1>Collaboration</h1>
-            </div>
-
-        </div>
-
-    </div>
-
-<section>
-
-</section>
+    
 </body>
+<!-- scroll revel js -->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<!-- main script -->
+<script src="/js/main.js"></script>
+
+<!-- typed js -->
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+
+
+
+
 </html>
