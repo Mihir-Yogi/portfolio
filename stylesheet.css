@@ -737,6 +737,11 @@ footer{
         font-size: 12px;
     }
 
+    .image-container img{
+        width: 300px;
+        border-radius: 10px;
+    }
+
     .project-box{
         flex-direction: column;
         justify-content: center;
@@ -746,7 +751,7 @@ footer{
     .image img:last-child{
         position: absolute;
         object-fit: cover;
-        left: -20px;
+        left: -25px;
         width: 130%;
         top: 100px;
         right: 0;
@@ -754,6 +759,10 @@ footer{
         transform: translate(0, -70px);
         opacity: 0;
         transition: all 0.5s ease;
+    }
+
+    .featured-image{
+        margin-bottom: 90px;
     }
 
 } 
