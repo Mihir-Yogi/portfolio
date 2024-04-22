@@ -571,7 +571,9 @@ textarea{
 .form-button i{
     font-size: 18px;
 }
-
+textarea {
+        margin-top: 10px;
+    }
 
 /* Footer */
 
