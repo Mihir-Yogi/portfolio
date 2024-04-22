@@ -197,18 +197,20 @@
                 </div>
                 <div class="col">
                     <div class="form-control">
-                        <div class="form-inputs">
-                            <input type="text" class="input-field" placeholder="Name">
-                            <input type="text" class="input-field" placeholder="Email">
-                        </div>
-                        <div class="text-area">
-                            <textarea placeholder="Message"></textarea>
-                        </div>
-                        <div class="form-button">
-                            <button- class="btn">
-                                send <i class="fa-solid fa-comment"></i>
-                            </button->
-                        </div>
+                        <form action="https://formspree.io/f/mvoedbao" method="post">
+                            <div class="form-inputs">
+                                <input type="text" id="name" class="input-field" placeholder="Name">
+                                <input type="email" id="email" class="input-field" placeholder="Email">
+                            </div>
+                            <div class="text-area">
+                                <textarea id="Message" placeholder="Message"></textarea>
+                            </div>
+                            <div class="form-button">
+                                <button type="submit" class="btn">
+                                    send <i class="fa-solid fa-comment"></i>
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
