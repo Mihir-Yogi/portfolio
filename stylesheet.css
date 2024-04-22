@@ -731,7 +731,7 @@ footer{
     }
 
     .about-info{
-        width: 100%;
+        max-width: 100%;
     }
     .contact-info p{
         font-size: 12px;
@@ -768,6 +768,18 @@ footer{
     #home{
         margin-top: 10px;
         margin-bottom: 20px;
+    }
+
+    .about-info p{
+        font-size: 10px;
+    }
+
+    .project-info p{
+        font-size: 10px;
+    }
+
+    textarea {
+        margin-top: 10px;
     }
 
 } 
