@@ -571,11 +571,17 @@ textarea{
 .form-button i{
     font-size: 18px;
 }
+<<<<<<< HEAD
 
 textarea {
     margin-top: 10px;
 }
 
+=======
+textarea {
+        margin-top: 10px;
+    }
+>>>>>>> 3dbe7c9dc655917232541e9bc31fca5da77fe704
 
 /* Footer */
 
