@@ -572,6 +572,10 @@ textarea{
     font-size: 18px;
 }
 
+textarea {
+    margin-top: 10px;
+}
+
 
 /* Footer */
 
@@ -783,5 +787,3 @@ footer{
     }
 
 } 
-
-
