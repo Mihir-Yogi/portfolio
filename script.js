@@ -150,13 +150,10 @@
 
     const isMobile = screenW <= 768;
 
-    // Professional balanced fit: preserve natural portrait aspect ratio without aggressive closeup
+    // Align shoulders precisely with the side borders of the screen on mobile
     let scale;
     if (isMobile) {
-      // On mobile, fit nicely within the screen with comfortable headroom and shoulders
-      const fitW = (screenW * 0.92) / imgW;
-      const fitH = (screenH * 0.72) / imgH;
-      scale = Math.min(fitW, fitH);
+      scale = screenW / imgW;
     } else {
       scale = Math.min(screenW / imgW, screenH / imgH);
     }
@@ -165,7 +162,7 @@
     const drawH = Math.round(imgH * scale);
 
     const drawX = Math.round((screenW - drawW) / 2);
-    // Position vertically centered with comfortable headroom
+    // Position vertically centered with clean eye level
     const drawY = Math.round((screenH - drawH) / 2);
 
     ctx.clearRect(0, 0, screenW, screenH);
