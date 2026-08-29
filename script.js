@@ -56,7 +56,7 @@
       img: 'assets/sunocampus.png',
       liveUrl: 'https://suno-campus.vercel.app',
       desc: `<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-               <span style="background: rgba(225, 29, 72, 0.15); border: 1px solid var(--primary-red); color: var(--primary-red); font-size: 0.72rem; font-weight: 800; padding: 2px 8px; border-radius: 999px;">● LIVE PLATFORM</span>
+               <span style="background: var(--primary-light); border: 1px solid var(--primary-red); color: var(--primary-red); font-size: 0.72rem; font-weight: 800; padding: 2px 8px; border-radius: 999px;">● LIVE PLATFORM</span>
                <a href="https://suno-campus.vercel.app" target="_blank" rel="noopener" style="color: var(--primary-red); font-size: 0.82rem; font-weight: 700; text-decoration: none;">suno-campus.vercel.app ↗</a>
              </div>
              <p style="margin-bottom: 12px; font-size: 1rem; color: #ffffff;"><strong>A modern college social network and centralized campus platform.</strong></p>
