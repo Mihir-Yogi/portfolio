@@ -20,6 +20,7 @@
   const modalTitle = document.getElementById('modal-title');
   const modalCategory = document.getElementById('modal-category');
   const modalDesc = document.getElementById('modal-desc');
+  const modalLiveBtn = document.getElementById('modal-live-btn');
   const modalClose = document.querySelector('.modal-close');
   const modalBackdrop = document.querySelector('.modal-backdrop');
 
@@ -49,32 +50,50 @@
   // Project data for modal lightbox
   const PROJECT_DATA = {
     suno: {
-      badge: '01',
+      badge: '01 • FEATURED',
       title: 'SUNO CAMPUS PLATFORM',
-      category: 'EVENT MANAGEMENT PLATFORM',
-      img: 'assets/technexa.jpg',
-      desc: `<p style="margin-bottom: 12px;"><strong>A centralized campus platform</strong> for managing hackathons, workshops, announcements, and opportunities.</p>
-             <p style="margin-bottom: 10px;"><strong>Key Highlights:</strong><br>
-             • Role-based access for Students, Admins, and Contributors<br>
-             • Event search, registration, notifications, and wishlists<br>
-             • Responsive user interfaces and routing<br>
-             • REST API and JWT authentication integration</p>
-             <p style="margin-bottom: 8px;"><strong>My Role:</strong> Frontend Developer</p>
-             <p><strong>Tech Stack:</strong> React, Node.js, Express.js, MongoDB, JWT Authentication, REST APIs</p>`
+      category: 'COLLEGE SOCIAL NETWORK & EVENT MANAGEMENT PLATFORM',
+      img: 'assets/sunocampus.png',
+      liveUrl: 'https://suno-campus.vercel.app',
+      desc: `<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+               <span style="background: rgba(225, 29, 72, 0.15); border: 1px solid var(--primary-red); color: var(--primary-red); font-size: 0.72rem; font-weight: 800; padding: 2px 8px; border-radius: 999px;">● LIVE PLATFORM</span>
+               <a href="https://suno-campus.vercel.app" target="_blank" rel="noopener" style="color: var(--primary-red); font-size: 0.82rem; font-weight: 700; text-decoration: none;">suno-campus.vercel.app ↗</a>
+             </div>
+             <p style="margin-bottom: 12px; font-size: 1rem; color: #ffffff;"><strong>A modern college social network and centralized campus platform.</strong></p>
+             <p style="margin-bottom: 14px; line-height: 1.6; color: #d1d5db;">Connects students, facilitates hackathons & workshop management, and fosters community collaboration with real-time updates.</p>
+             <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px; margin-bottom: 14px;">
+               <div style="font-size: 0.78rem; font-weight: 800; color: var(--primary-red); margin-bottom: 8px; letter-spacing: 0.08em; text-transform: uppercase;">Key Highlights:</div>
+               <ul style="padding-left: 18px; margin: 0; font-size: 0.88rem; line-height: 1.6; color: #d1d5db;">
+                 <li><strong>Community Hub:</strong> College-wide announcements, opportunities, and discussions</li>
+                 <li><strong>Event System:</strong> Search, registration, calendar notifications, and wishlists</li>
+                 <li><strong>Role-Based Access:</strong> Multi-tier access for Students, Admins, and Contributors</li>
+                 <li><strong>Responsive Routing:</strong> Scalable component architecture with JWT auth</li>
+               </ul>
+             </div>
+             <p style="font-size: 0.88rem;"><strong>Tech Stack:</strong> React • Node.js • Express.js • MongoDB • JWT Authentication • REST APIs</p>`
     },
     cims: {
-      badge: '02',
-      title: 'CIMS — CCTV INFORMATION MANAGEMENT SYSTEM',
-      category: 'CCTV INFORMATION MANAGEMENT SYSTEM',
-      img: 'assets/creative_studio.jpg',
-      desc: `<p style="margin-bottom: 12px;"><strong>An online system</strong> designed to track CCTV equipment inventory, status, and service history.</p>
-             <p style="margin-bottom: 10px;"><strong>Key Highlights:</strong><br>
-             • Multi-user access and status tracking<br>
-             • Notifications for equipment malfunction<br>
-             • Dashboard-based monitoring<br>
-             • CRUD and database management<br>
-             • Alert workflow for easier equipment monitoring</p>
-             <p><strong>Technologies:</strong> Web Application, Database Management, CRUD, Multi-user Access, Alert Workflow, Dashboard</p>`
+      badge: '02 • ONGOING PROJECT',
+      title: 'CAMOPS — OPERATIONS DESK (CIMS)',
+      category: 'CCTV & OPERATIONS DESK MANAGEMENT SYSTEM • ONGOING',
+      img: 'assets/camops.jpg',
+      liveUrl: 'https://cctvtracker.netlify.app/',
+      desc: `<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+               <span style="background: rgba(34, 197, 94, 0.15); border: 1px solid #22c55e; color: #22c55e; font-size: 0.72rem; font-weight: 800; padding: 2px 8px; border-radius: 999px;">● ONGOING PROJECT</span>
+               <a href="https://cctvtracker.netlify.app/" target="_blank" rel="noopener" style="color: #22c55e; font-size: 0.82rem; font-weight: 700; text-decoration: none;">cctvtracker.netlify.app ↗</a>
+             </div>
+             <p style="margin-bottom: 12px; font-size: 1rem; color: #ffffff;"><strong>"Clarity when everything is moving."</strong></p>
+             <p style="margin-bottom: 14px; line-height: 1.6; color: #d1d5db;">CamOps is an operations desk platform that helps teams monitor CCTV assets, track operational status, manage equipment failures, and ensure smooth field operations.</p>
+             <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px; margin-bottom: 14px;">
+               <div style="font-size: 0.78rem; font-weight: 800; color: #22c55e; margin-bottom: 8px; letter-spacing: 0.08em; text-transform: uppercase;">Core Modules & Features:</div>
+               <ul style="padding-left: 18px; margin: 0; font-size: 0.88rem; line-height: 1.6; color: #d1d5db;">
+                 <li><strong>Centralized Operations:</strong> Monitor assets, locations, and teams in one place</li>
+                 <li><strong>Failure Management:</strong> Track, prioritize, and resolve equipment malfunctions</li>
+                 <li><strong>Live Insights:</strong> Real-time operational metrics, confirmations, and alert workflows</li>
+                 <li><strong>Role-Based Access:</strong> Secure, role-specific workspace experience with CRUD workflows</li>
+               </ul>
+             </div>
+             <p style="font-size: 0.88rem;"><strong>Tech Stack:</strong> React • Node.js • MongoDB • Chart.js • REST APIs • CRUD Workflows</p>`
     }
   };
 
@@ -387,6 +406,7 @@
     const openTerminal = () => {
       if (!terminalModal) return;
       terminalModal.classList.add('open');
+      document.body.classList.add('modal-open');
       document.body.style.overflow = 'hidden';
       playSound('open');
       if (terminalInput) {
@@ -397,6 +417,7 @@
     const closeTerminal = () => {
       if (!terminalModal) return;
       terminalModal.classList.remove('open');
+      document.body.classList.remove('modal-open');
       document.body.style.overflow = '';
       playSound('click');
     };
@@ -702,7 +723,26 @@
     });
   };
 
-  // Project Modal Lightbox
+  // Project Modal Lightbox & Zoom Feature
+  const modalMediaWrap = document.getElementById('modal-media-wrap');
+  const posterZoomModal = document.getElementById('poster-zoom-modal');
+  const posterZoomImg = document.getElementById('poster-zoom-img');
+  const posterZoomClose = document.getElementById('poster-zoom-close');
+  const posterZoomBackdrop = document.querySelector('.poster-zoom-backdrop');
+
+  const openPosterZoom = () => {
+    if (!posterZoomModal || !modalImg || !modalImg.src) return;
+    posterZoomImg.src = modalImg.src;
+    posterZoomModal.classList.add('open');
+    playSound('open');
+  };
+
+  const closePosterZoom = () => {
+    if (!posterZoomModal) return;
+    posterZoomModal.classList.remove('open');
+    playSound('click');
+  };
+
   const openModal = (key) => {
     const data = PROJECT_DATA[key];
     if (!data || !modal) return;
@@ -713,7 +753,17 @@
     modalImg.src = data.img;
     modalDesc.innerHTML = data.desc;
 
+    if (modalLiveBtn) {
+      if (data.liveUrl) {
+        modalLiveBtn.href = data.liveUrl;
+        modalLiveBtn.style.display = 'inline-flex';
+      } else {
+        modalLiveBtn.style.display = 'none';
+      }
+    }
+
     modal.classList.add('open');
+    document.body.classList.add('modal-open');
     document.body.style.overflow = 'hidden';
     playSound('open');
   };
@@ -721,6 +771,7 @@
   const closeModal = () => {
     if (!modal) return;
     modal.classList.remove('open');
+    document.body.classList.remove('modal-open');
     document.body.style.overflow = '';
     playSound('click');
   };
@@ -733,10 +784,24 @@
       });
     });
 
+    if (modalMediaWrap) {
+      modalMediaWrap.addEventListener('click', openPosterZoom);
+    }
+
+    if (posterZoomClose) posterZoomClose.addEventListener('click', closePosterZoom);
+    if (posterZoomBackdrop) posterZoomBackdrop.addEventListener('click', closePosterZoom);
+
     if (modalClose) modalClose.addEventListener('click', closeModal);
     if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+    
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Escape') {
+        if (posterZoomModal && posterZoomModal.classList.contains('open')) {
+          closePosterZoom();
+        } else if (modal && modal.classList.contains('open')) {
+          closeModal();
+        }
+      }
     });
   };
 

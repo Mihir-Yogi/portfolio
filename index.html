@@ -241,9 +241,9 @@
         <article class="project-card tilt-card-3d" data-project="suno">
           <div class="project-thumb-box">
             <span class="project-badge">01</span>
-            <img src="assets/technexa.jpg" alt="Suno Campus Platform - Event Management" class="project-img" loading="lazy" />
+            <img src="assets/sunocampus.png" alt="SunoCampus - College Social Network & Event Management Platform" class="project-img" loading="lazy" />
             <div class="project-hover-overlay">
-              <span class="view-project-btn">VIEW DETAILS ↗</span>
+              <span class="view-project-btn">VIEW DETAILS & DEMO ↗</span>
             </div>
           </div>
           <div class="project-meta">
@@ -255,31 +255,31 @@
               <span>JWT</span>
             </div>
             <h3 class="project-name">SUNO CAMPUS PLATFORM</h3>
-            <p class="project-category">EVENT MANAGEMENT PLATFORM</p>
+            <p class="project-category">COLLEGE SOCIAL NETWORK & EVENT PLATFORM</p>
             <p class="project-summary">A centralized campus platform for managing hackathons, workshops, announcements, and opportunities with role-based access for Students, Admins, and Contributors.</p>
           </div>
         </article>
 
-        <!-- Project 2: CIMS -->
+        <!-- Project 2: CamOps (CIMS) - Ongoing Project -->
         <article class="project-card tilt-card-3d" data-project="cims">
           <div class="project-thumb-box">
-            <span class="project-badge">02</span>
-            <img src="assets/creative_studio.jpg" alt="CIMS - CCTV Information Management System" class="project-img" loading="lazy" />
+            <span class="project-badge badge-ongoing">02 • ONGOING</span>
+            <img src="assets/camops.jpg" alt="CamOps - Operations Desk & CCTV Management System" class="project-img" loading="lazy" />
             <div class="project-hover-overlay">
-              <span class="view-project-btn">VIEW DETAILS ↗</span>
+              <span class="view-project-btn">VIEW DETAILS & DEMO ↗</span>
             </div>
           </div>
           <div class="project-meta">
             <div class="project-tech-badges">
-              <span>WEB APP</span>
+              <span class="tech-highlight">REACT</span>
+              <span class="tech-highlight">NODE.JS</span>
+              <span class="tech-highlight">MONGODB</span>
+              <span class="tech-highlight">CHART.JS</span>
               <span>CRUD</span>
-              <span>DATABASE</span>
-              <span>DASHBOARD</span>
-              <span>ALERTS</span>
             </div>
-            <h3 class="project-name">CIMS</h3>
-            <p class="project-category">CCTV INFORMATION MANAGEMENT SYSTEM</p>
-            <p class="project-summary">An online system designed to track CCTV equipment inventory, status, service history, alert workflows, and automated malfunction notifications.</p>
+            <h3 class="project-name">CAMOPS — OPERATIONS DESK (CIMS)</h3>
+            <p class="project-category">CCTV & OPERATIONS MANAGEMENT SYSTEM • ONGOING</p>
+            <p class="project-summary">An operations desk platform designed to track CCTV equipment inventory, status, service history, malfunction workflows, and live monitoring dashboards.</p>
           </div>
         </article>
       </div>
@@ -578,23 +578,61 @@
     <!-- Toast Notification for Micro-interactions -->
     <div id="toast" class="toast-notification">✓ Copied to clipboard!</div>
 
-    <!-- Interactive Project Modal Lightbox -->
-    <div id="project-modal" class="project-modal">
+    <!-- Interactive Project Modal Lightbox (Dual-Pane Studio) -->
+    <div id="project-modal" class="project-modal" role="dialog" aria-modal="true">
       <div class="modal-backdrop"></div>
       <div class="modal-card">
         <button class="modal-close" aria-label="Close modal">&times;</button>
-        <div class="modal-media">
-          <img id="modal-img" src="" alt="Project Preview" />
-        </div>
-        <div class="modal-body">
-          <span id="modal-badge" class="modal-badge">01</span>
-          <h3 id="modal-title" class="modal-title">PROJECT TITLE</h3>
-          <p id="modal-category" class="modal-category">CATEGORY</p>
-          <div id="modal-desc" class="modal-desc">Detailed project description explaining the UX strategy, creative design, and technical execution.</div>
-          <div class="modal-footer">
-            <a href="#contact" class="modal-cta-btn">DISCUSS PROJECT / COLLABORATE ↗</a>
+        
+        <!-- Left Pane: Full Poster Display with Interactive Zoom -->
+        <div class="modal-media-pane">
+          <div class="modal-media-wrap" id="modal-media-wrap" title="Click to view full poster">
+            <img id="modal-img" src="" alt="Project Poster Preview" />
+            <div class="poster-zoom-hint">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+              <span>Click to Expand Poster</span>
+            </div>
           </div>
         </div>
+
+        <!-- Right Pane: Scrollable Project Story & Live Actions -->
+        <div class="modal-info-pane">
+          <div class="modal-info-scroll">
+            <div class="modal-header-row">
+              <span id="modal-badge" class="modal-badge">01</span>
+              <span id="modal-category" class="modal-category">CATEGORY</span>
+            </div>
+            <h3 id="modal-title" class="modal-title">PROJECT TITLE</h3>
+            <div id="modal-desc" class="modal-desc">Detailed project description.</div>
+          </div>
+
+          <!-- Sticky Bottom Action Bar -->
+          <div class="modal-footer-sticky">
+            <a id="modal-live-btn" href="#" target="_blank" rel="noopener" class="modal-live-btn" style="display:none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              <span>VIEW LIVE DEMO ↗</span>
+            </a>
+            <a href="#contact" class="modal-cta-btn">COLLABORATE / DISCUSS ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fullscreen Poster Zoom Viewer -->
+    <div id="poster-zoom-modal" class="poster-zoom-modal">
+      <div class="poster-zoom-backdrop"></div>
+      <div class="poster-zoom-content">
+        <button id="poster-zoom-close" class="poster-zoom-close" title="Close Fullscreen View">&times;</button>
+        <img id="poster-zoom-img" src="" alt="Fullscreen Poster" />
       </div>
     </div>
 
