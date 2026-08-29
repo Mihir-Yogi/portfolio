@@ -19,7 +19,7 @@ const MIME_TYPES = {
   '.ico': 'image/x-icon',
 };
 
-const server = http.createServer((req, res) => {
+const requestHandler = (req, res) => {
   let reqPath = decodeURI(req.url.split('?')[0]);
   if (reqPath === '/') reqPath = '/index.html';
 
@@ -39,7 +39,6 @@ const server = http.createServer((req, res) => {
     const ext = path.extname(safePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
 
-    // Add cache headers for images for fast instant playback
     const headers = {
       'Content-Type': contentType,
       'Content-Length': stats.size,
@@ -53,8 +52,14 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, headers);
     fs.createReadStream(safePath).pipe(res);
   });
-});
+};
 
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
-});
+const server = http.createServer(requestHandler);
+
+if (require.main === module) {
+  server.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}/`);
+  });
+}
+
+module.exports = requestHandler;
