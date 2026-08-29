@@ -121,7 +121,7 @@
     }
   };
 
-  // Draw image frame centered with responsive zoom to fit
+  // Draw image frame centered preserving natural portrait proportions
   const drawFrame = (index) => {
     let img = images[index];
 
@@ -149,17 +149,24 @@
     const imgH = img.naturalHeight;
 
     const isMobile = screenW <= 768;
-    const coverScale = Math.max(screenW / imgW, screenH / imgH);
-    
-    // Zoom factor: on mobile zoom in so face and shoulders fill the portrait view nicely
-    const zoom = isMobile ? 1.32 : 1.0;
-    const drawW = imgW * coverScale * zoom;
-    const drawH = imgH * coverScale * zoom;
 
-    const drawX = (screenW - drawW) / 2;
-    // On mobile portrait, adjust vertical center to ensure clear headroom
-    const yOffset = isMobile ? (screenH * 0.04) : 0;
-    const drawY = (screenH - drawH) / 2 + yOffset;
+    // Professional balanced fit: preserve natural portrait aspect ratio without aggressive closeup
+    let scale;
+    if (isMobile) {
+      // On mobile, fit nicely within the screen with comfortable headroom and shoulders
+      const fitW = (screenW * 0.92) / imgW;
+      const fitH = (screenH * 0.72) / imgH;
+      scale = Math.min(fitW, fitH);
+    } else {
+      scale = Math.min(screenW / imgW, screenH / imgH);
+    }
+
+    const drawW = Math.round(imgW * scale);
+    const drawH = Math.round(imgH * scale);
+
+    const drawX = Math.round((screenW - drawW) / 2);
+    // Position vertically centered with comfortable headroom
+    const drawY = Math.round((screenH - drawH) / 2);
 
     ctx.clearRect(0, 0, screenW, screenH);
     ctx.imageSmoothingEnabled = true;
