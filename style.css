@@ -266,37 +266,21 @@ body {
   transform: translateX(-50%) translateY(0);
 }
 
-/* ===================================================
-   BACKGROUND TYPOGRAPHY LAYER (BEHIND PORTRAIT)
-   =================================================== */
-/* ===================================================
-   BACKGROUND TYPOGRAPHY LAYER (BEHIND PORTRAIT)
-   =================================================== */
-.hero-bg-layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 35px;
-  z-index: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+.dock-terminal-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
-.hero-bg-text {
-  font-family: var(--font-display);
-  font-size: clamp(6.5rem, 16vw, 15.5rem);
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  color: #ba001f;
-  opacity: 0.96;
-  user-select: none;
-  white-space: nowrap;
-  text-shadow: 0 0 65px rgba(225, 29, 72, 0.45);
+.dock-terminal-btn:hover {
+  background: var(--primary-red);
+  color: #ffffff;
+}
+
+.dock-term-icon {
+  font-size: 0.95rem;
+  line-height: 1;
 }
 
 /* ===================================================
@@ -2150,9 +2134,13 @@ body.modal-open .terminal-floating-btn {
 
   .top-nav {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 12px 0 24px 0;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0 18px 0;
+  }
+
+  .brand-tag {
+    display: none;
   }
 
   .nav-right-actions {
@@ -2160,8 +2148,8 @@ body.modal-open .terminal-floating-btn {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+    justify-content: center;
+    gap: 8px;
   }
 
   .nav-social-links {
@@ -2169,22 +2157,21 @@ body.modal-open .terminal-floating-btn {
   }
 
   .nav-social-btn {
-    padding: 5px 10px;
-    font-size: 0.74rem;
+    padding: 6px 12px;
+    font-size: 0.76rem;
   }
 
   .availability-badge {
     font-size: 0.72rem;
-    padding: 5px 10px;
-  }
-
-  .hero-bg-text {
-    font-size: clamp(4.5rem, 18vw, 8rem);
-    padding-top: 15px;
+    padding: 6px 12px;
   }
 
   .hero-name {
     font-size: clamp(2.6rem, 11vw, 3.8rem);
+  }
+
+  .hero-portrait-spacer {
+    min-height: 320px;
   }
 
   .hero-stats {
@@ -2193,29 +2180,18 @@ body.modal-open .terminal-floating-btn {
   }
 
   .floating-dock {
-    bottom: 16px;
+    bottom: 18px;
     left: 50%;
     transform: translateX(-50%);
-    padding: 5px 10px;
+    padding: 6px 12px;
     gap: 6px;
     z-index: 90;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px var(--accent-red-glow);
   }
 
   .dock-item {
     width: 36px;
     height: 36px;
-  }
-
-  .terminal-floating-btn {
-    bottom: 16px;
-    right: 14px;
-    padding: 8px 14px;
-    font-size: 0.76rem;
-    z-index: 95;
-  }
-
-  .terminal-floating-btn kbd {
-    display: none;
   }
 
   .terminal-window {
@@ -2240,12 +2216,7 @@ body.modal-open .terminal-floating-btn {
 
 @media (max-width: 480px) {
   .portfolio-wrapper {
-    padding: 14px 18px 80px 18px;
-  }
-
-  .brand-tag {
-    font-size: 0.76rem;
-    letter-spacing: 0.08em;
+    padding: 12px 16px 80px 16px;
   }
 
   .hero-intro {
@@ -2253,37 +2224,54 @@ body.modal-open .terminal-floating-btn {
   }
 
   .hero-name {
-    font-size: 2.5rem;
+    font-size: 2.7rem;
+    line-height: 0.95;
+    margin-bottom: 8px;
   }
 
   .hero-script {
     font-size: 1.8rem;
+    margin-bottom: 2px;
   }
 
   .hero-role-badge {
     font-size: 0.72rem;
     padding: 4px 10px;
+    margin-bottom: 6px;
   }
 
   .hero-subheading {
     font-size: 0.88rem;
+    margin-bottom: 12px;
   }
 
   .hero-bio {
     font-size: 0.88rem;
     line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .hero-portrait-spacer {
+    min-height: 280px;
   }
 
   .hero-actions {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
+    align-items: stretch;
+    gap: 12px;
     width: 100%;
+  }
+
+  .hero-location {
+    justify-content: center;
+    font-size: 0.78rem;
+    padding: 8px 12px;
   }
 
   .hero-quick-btn {
     width: 100%;
     text-align: center;
+    padding: 12px;
   }
 
   .project-meta {
@@ -2314,14 +2302,5 @@ body.modal-open .terminal-floating-btn {
   .contact-static-item {
     font-size: 0.84rem;
     padding: 10px 14px;
-  }
-
-  .modal-card {
-    max-width: 95vw;
-    border-radius: 12px;
-  }
-
-  .modal-body {
-    padding: 18px 16px;
   }
 }
