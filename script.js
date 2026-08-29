@@ -150,10 +150,14 @@
 
     const isMobile = screenW <= 768;
 
-    // Align shoulders precisely with the side borders of the screen on mobile
+    // Target portrait focus frame dimensions: 683px x 720px
+    const FOCUS_W = 683;
+    const FOCUS_H = 720;
+
     let scale;
     if (isMobile) {
-      scale = screenW / imgW;
+      // Scale based on the 683px portrait width so the shoulders span the mobile screen width perfectly
+      scale = screenW / FOCUS_W;
     } else {
       scale = Math.min(screenW / imgW, screenH / imgH);
     }
@@ -162,7 +166,7 @@
     const drawH = Math.round(imgH * scale);
 
     const drawX = Math.round((screenW - drawW) / 2);
-    // Position vertically centered with clean eye level
+    // Position vertically centered with comfortable eye level
     const drawY = Math.round((screenH - drawH) / 2);
 
     ctx.clearRect(0, 0, screenW, screenH);
