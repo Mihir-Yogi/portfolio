@@ -1,0 +1,9 @@
+{
+  "name": "mihir-yogi-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio of Mihir Yogi",
+  "scripts": {
+    "build": "echo 'Static build ready'"
+  }
+}
