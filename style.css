@@ -2142,8 +2142,21 @@ body.modal-open .terminal-floating-btn {
   }
 
   #animation-canvas {
-    -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 50%, #000000 48%, rgba(0, 0, 0, 0.8) 65%, rgba(0, 0, 0, 0.3) 84%, transparent 100%);
-    mask-image: radial-gradient(ellipse 85% 65% at 50% 50%, #000000 48%, rgba(0, 0, 0, 0.8) 65%, rgba(0, 0, 0, 0.3) 84%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.7) 8%, #000000 18%, #000000 82%, rgba(0, 0, 0, 0.7) 92%, transparent 100%),
+                        linear-gradient(to bottom, transparent 0%, #000000 12%, #000000 85%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.7) 8%, #000000 18%, #000000 82%, rgba(0, 0, 0, 0.7) 92%, transparent 100%);
+    mask-composite: intersect;
+  }
+
+  .canvas-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: 
+      linear-gradient(to right, #09090b 0%, rgba(9, 9, 11, 0.85) 6%, rgba(9, 9, 11, 0.3) 16%, transparent 24%, transparent 76%, rgba(9, 9, 11, 0.3) 84%, rgba(9, 9, 11, 0.85) 94%, #09090b 100%),
+      linear-gradient(to bottom, rgba(9, 9, 11, 0.65) 0%, transparent 14%, transparent 78%, rgba(9, 9, 11, 0.95) 100%);
+    display: block;
   }
 
   .top-nav {
