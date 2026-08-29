@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mihir Yogi — Software Developer & Computer Engineering Portfolio</title>
+  <meta name="description" content="Portfolio of Mihir Yogi - Computer Engineering Student, Software Developer & Web Technology Enthusiast." />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600;700&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Custom Subtle Glow Cursor -->
+  <div id="cursor-glow" class="cursor-glow"></div>
+
+  <!-- Landing Preloader Screen -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="loader-brand">MIHIR YOGI</div>
+      <div class="loader-bar-wrap">
+        <div id="loader-bar" class="loader-bar"></div>
+      </div>
+      <div class="loader-status">
+        <span>LOADING EXPERIENCE</span>
+        <span id="loader-percent">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Quick Nav & Scroll Indicator Dock -->
+  <nav id="floating-dock" class="floating-dock">
+    <a href="#hero" class="dock-item active" data-tooltip="Home">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+    <a href="#projects" class="dock-item" data-tooltip="Projects">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+      </svg>
+    </a>
+    <a href="#about" class="dock-item" data-tooltip="Skills & Process">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+      </svg>
+    </a>
+    <a href="#contact" class="dock-item" data-tooltip="Contact">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+    </a>
+    <div class="dock-divider"></div>
+    <div id="scroll-percentage" class="scroll-percentage" title="Scroll Progress">0%</div>
+  </nav>
+
+  <!-- Layer 0: Giant Red Background Typography (Behind Portrait Canvas) -->
+  <div class="hero-bg-layer">
+    <div class="hero-bg-text">DEVELOPER</div>
+  </div>
+
+  <!-- Layer 1: Background Scroll Animation Canvas -->
+  <div class="canvas-container">
+    <canvas id="animation-canvas"></canvas>
+    <div class="canvas-overlay"></div>
+  </div>
+
+  <!-- Layer 2: Main Content Layer -->
+  <div class="portfolio-wrapper">
+    
+    <!-- Top Navigation Header -->
+    <header class="top-nav anim-fade-in">
+      <div class="brand-tag">
+        <span class="tag-line"></span>
+        MIHIR YOGI • SOFTWARE DEVELOPER
+      </div>
+      <div class="nav-right-actions">
+        <div class="nav-social-links">
+          <a href="https://www.linkedin.com/in/mihiryogi/" target="_blank" rel="noopener" class="nav-social-btn" title="LinkedIn Profile">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/Mihir-Yogi" target="_blank" rel="noopener" class="nav-social-btn" title="GitHub Profile">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            <span>GitHub</span>
+          </a>
+        </div>
+        <div class="availability-badge">
+          <span class="status-dot"></span>
+          AVAILABLE FOR INTERNSHIPS & PROJECTS
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content-grid">
+        <!-- Left Hero Content -->
+        <div class="hero-intro anim-hero-left">
+          <p class="hero-script">Hello, I'm</p>
+          <h1 class="hero-name">
+            <span class="name-line">MIHIR</span>
+            <span class="name-line">YOGI</span>
+          </h1>
+          <div class="hero-role-badge">COMPUTER ENGINEERING STUDENT</div>
+          <h2 class="hero-subheading">SOFTWARE DEVELOPER & WEB TECHNOLOGY ENTHUSIAST</h2>
+          <p class="hero-bio">
+            I’m a Computer Engineering student with hands-on experience in web development, databases, and real-world projects. I build responsive web interfaces and work with modern technologies including React.js, JavaScript, Node.js, Express.js, MongoDB, SQL, HTML, and CSS.
+          </p>
+          <div class="hero-actions">
+            <div class="hero-location">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>BASED IN: GUJARAT, INDIA</span>
+            </div>
+            <a href="#contact" class="hero-quick-btn">LET'S TALK ↗</a>
+          </div>
+        </div>
+
+        <!-- Center Open Spacer so Portrait is 100% Visible & Uncovered -->
+        <div class="hero-portrait-spacer"></div>
+
+        <!-- Right Hero Stats / Badges -->
+        <div class="hero-stats anim-hero-right">
+          <div class="stat-card stagger-1">
+            <div class="stat-icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">B.TECH COMPUTER ENGINEERING</span>
+              <span class="stat-value">Expected: June 2027</span>
+            </div>
+          </div>
+
+          <div class="stat-card stagger-2">
+            <div class="stat-icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">SPECIALIZED IN</span>
+              <span class="stat-value">WEB DEVELOPMENT<br>UI & DATABASES</span>
+            </div>
+          </div>
+
+          <div class="stat-card stagger-3">
+            <div class="stat-icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">AVAILABLE FOR</span>
+              <span class="stat-value">INTERNSHIPS & COLLABORATION</span>
+            </div>
+          </div>
+
+          <div class="stat-card stagger-4">
+            <div class="stat-icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">TECHNOLOGY STACK</span>
+              <span class="stat-value">REACT • NODE • MONGO • SQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Projects Section -->
+    <section id="projects" class="section-container projects-section reveal-item">
+      <div class="section-header-flex">
+        <h2 class="section-title">SELECTED PROJECTS</h2>
+        <a href="#contact" class="view-all-link">
+          COLLABORATE ON A PROJECT
+          <span class="arrow-box">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </a>
+      </div>
+
+      <div class="projects-grid projects-grid-two">
+        <!-- Project 1: Suno Campus Platform -->
+        <article class="project-card" data-project="suno">
+          <div class="project-thumb-box">
+            <span class="project-badge">01</span>
+            <img src="assets/technexa.jpg" alt="Suno Campus Platform - Event Management" class="project-img" loading="lazy" />
+            <div class="project-hover-overlay">
+              <span class="view-project-btn">VIEW DETAILS ↗</span>
+            </div>
+          </div>
+          <div class="project-meta">
+            <div class="project-tech-badges">
+              <span>REACT</span>
+              <span>NODE.JS</span>
+              <span>EXPRESS</span>
+              <span>MONGODB</span>
+              <span>JWT</span>
+            </div>
+            <h3 class="project-name">SUNO CAMPUS PLATFORM</h3>
+            <p class="project-category">EVENT MANAGEMENT PLATFORM</p>
+            <p class="project-summary">A centralized campus platform for managing hackathons, workshops, announcements, and opportunities with role-based access for Students, Admins, and Contributors.</p>
+          </div>
+        </article>
+
+        <!-- Project 2: CIMS -->
+        <article class="project-card" data-project="cims">
+          <div class="project-thumb-box">
+            <span class="project-badge">02</span>
+            <img src="assets/creative_studio.jpg" alt="CIMS - CCTV Information Management System" class="project-img" loading="lazy" />
+            <div class="project-hover-overlay">
+              <span class="view-project-btn">VIEW DETAILS ↗</span>
+            </div>
+          </div>
+          <div class="project-meta">
+            <div class="project-tech-badges">
+              <span>WEB APP</span>
+              <span>CRUD</span>
+              <span>DATABASE</span>
+              <span>DASHBOARD</span>
+              <span>ALERTS</span>
+            </div>
+            <h3 class="project-name">CIMS</h3>
+            <p class="project-category">CCTV INFORMATION MANAGEMENT SYSTEM</p>
+            <p class="project-summary">An online system designed to track CCTV equipment inventory, status, service history, alert workflows, and automated malfunction notifications.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Education, Skills, Work Process & Certifications Grid -->
+    <section id="about" class="section-container info-section reveal-item">
+      <div class="info-three-col-grid">
+        
+        <!-- Column 1: Education & Technical Skills -->
+        <div class="info-col education-skills-col">
+          <h2 class="col-title">EDUCATION & SKILLS</h2>
+
+          <div class="sub-block">
+            <h3 class="sub-block-title">EDUCATION</h3>
+            <div class="edu-item">
+              <div class="edu-dot"></div>
+              <div>
+                <p class="edu-degree">B.Tech in Computer Engineering</p>
+                <p class="edu-inst">Institute of Technology – Ganpat University</p>
+                <p class="edu-sub-inst">Gujarat, India • Expected Graduation: June 2027</p>
+              </div>
+            </div>
+            <div class="edu-item">
+              <div class="edu-dot"></div>
+              <div>
+                <p class="edu-degree">Diploma in Computer Engineering</p>
+                <p class="edu-inst">Graduated: June 2024</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-block">
+            <h3 class="sub-block-title">TECHNICAL SKILLS</h3>
+            
+            <p class="skill-category-label">LANGUAGES</p>
+            <div class="skills-tags-wrap mb-10">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+            </div>
+
+            <p class="skill-category-label">FRAMEWORKS & DATABASES</p>
+            <div class="skills-tags-wrap mb-10">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Express.js</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">MySQL</span>
+            </div>
+
+            <p class="skill-category-label">TOOLS & CORE STRENGTHS</p>
+            <div class="skills-tags-wrap">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">GitHub</span>
+              <span class="skill-tag">Problem Solving</span>
+              <span class="skill-tag">Team Collaboration</span>
+              <span class="skill-tag">Leadership</span>
+              <span class="skill-tag">Quick Learning</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: Work Process -->
+        <div class="info-col work-process-col">
+          <h2 class="col-title">WORK PROCESS</h2>
+          
+          <div class="process-timeline">
+            <!-- Step 1 -->
+            <div class="process-step">
+              <div class="step-badge-wrap">
+                <span class="step-num">01</span>
+                <span class="step-line"></span>
+              </div>
+              <div class="step-text">
+                <h4 class="step-title">UNDERSTAND</h4>
+                <p class="step-desc">Understand the requirements, objectives, users, and technical needs of the project.</p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="process-step">
+              <div class="step-badge-wrap">
+                <span class="step-num">02</span>
+                <span class="step-line"></span>
+              </div>
+              <div class="step-text">
+                <h4 class="step-title">PLAN</h4>
+                <p class="step-desc">Break down requirements and plan the structure, features, technologies, and development approach.</p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="process-step">
+              <div class="step-badge-wrap">
+                <span class="step-num">03</span>
+                <span class="step-line"></span>
+              </div>
+              <div class="step-text">
+                <h4 class="step-title">DEVELOP</h4>
+                <p class="step-desc">Build responsive interfaces and functional features using modern web technologies.</p>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="process-step">
+              <div class="step-badge-wrap">
+                <span class="step-num">04</span>
+                <span class="step-line"></span>
+              </div>
+              <div class="step-text">
+                <h4 class="step-title">INTEGRATE</h4>
+                <p class="step-desc">Connect frontend components with APIs, databases, authentication, and backend services.</p>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="process-step">
+              <div class="step-badge-wrap">
+                <span class="step-num">05</span>
+              </div>
+              <div class="step-text">
+                <h4 class="step-title">TEST & IMPROVE</h4>
+                <p class="step-desc">Test functionality, identify issues, optimize the implementation, and improve the overall user experience.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3: Certifications Card -->
+        <div class="info-col certifications-card-col">
+          <h2 class="col-title cert-head">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2">
+              <circle cx="12" cy="8" r="7"></circle>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+            </svg>
+            CERTIFICATIONS
+          </h2>
+
+          <div class="cert-list">
+            <!-- Cert 1 -->
+            <div class="cert-item">
+              <div class="cert-icon-dot"></div>
+              <div class="cert-content">
+                <h4 class="cert-name">DIGITAL PRODUCTIVITY CERTIFICATE</h4>
+                <p class="cert-issuer">UNICEF offered by NIIT Foundation</p>
+                <span class="cert-year">2024</span>
+              </div>
+            </div>
+
+            <!-- Cert 2 -->
+            <div class="cert-item">
+              <div class="cert-icon-dot"></div>
+              <div class="cert-content">
+                <h4 class="cert-name">GETTING STARTED WITH GIT AND GITHUB</h4>
+                <p class="cert-issuer">IBM</p>
+                <span class="cert-year">Issued May 2024</span>
+              </div>
+            </div>
+
+            <!-- Cert 3 -->
+            <div class="cert-item">
+              <div class="cert-icon-dot"></div>
+              <div class="cert-content">
+                <h4 class="cert-name">INTRODUCTION TO WEB DEVELOPMENT WITH HTML, CSS, JAVASCRIPT</h4>
+                <p class="cert-issuer">IBM</p>
+                <span class="cert-year">Issued April 2024</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-quote-box">
+            <p>"Committed to continuous learning, building impactful software, and solving real-world challenges."</p>
+            <div class="author-signature">Mihir Yogi</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Let's Work Together / Contact Footer -->
+    <section id="contact" class="section-container contact-section reveal-item">
+      <div class="contact-grid">
+        <!-- Left Contact Info -->
+        <div class="contact-info-block">
+          <h2 class="contact-title">
+            LET’S WORK <span class="accent-dot">•</span> TOGETHER
+          </h2>
+          <p class="contact-subtitle">
+            I'm open to internships, technical opportunities, project collaborations, and opportunities where I can apply my skills while continuing to grow as a Computer Engineer.
+          </p>
+
+          <ul class="contact-links-list">
+            <li>
+              <a href="mailto:work.mihiryogi@gmail.com" class="interactive-copy" data-copy="work.mihiryogi@gmail.com">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>work.mihiryogi@gmail.com</span>
+                <span class="copy-hint">Copy</span>
+              </a>
+            </li>
+            <li>
+              <a href="tel:+917383296446" class="interactive-copy" data-copy="+917383296446">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>+91 7383296446</span>
+                <span class="copy-hint">Copy</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/mihiryogi/" target="_blank" rel="noopener" class="interactive-copy" data-copy="https://www.linkedin.com/in/mihiryogi/">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+                <span>linkedin.com/in/mihiryogi</span>
+                <span class="copy-hint">Visit ↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/Mihir-Yogi" target="_blank" rel="noopener" class="interactive-copy" data-copy="https://github.com/Mihir-Yogi">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                <span>github.com/Mihir-Yogi</span>
+                <span class="copy-hint">Visit ↗</span>
+              </a>
+            </li>
+            <li>
+              <div class="contact-static-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Gujarat, India</span>
+              </div>
+            </li>
+          </ul>
+
+          <a href="mailto:work.mihiryogi@gmail.com" class="cta-action-btn">
+            <span class="cta-arrow-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+            <span class="cta-btn-text">
+              LET'S CREATE<br>
+              <strong>SOMETHING GREAT</strong>
+            </span>
+          </a>
+        </div>
+
+        <!-- Right Workspace Showcase Card -->
+        <div class="contact-showcase-block">
+          <div class="workspace-glass-card">
+            <div class="workspace-header">
+              <span class="ws-pill">TECH PROFILE</span>
+              <span class="ws-indicator"></span>
+            </div>
+            <div class="workspace-screen-preview">
+              <div class="ws-badge-red">COMPUTER ENGINEERING</div>
+              <h3 class="ws-hero-heading">FULL STACK & WEB DEV</h3>
+              <p class="ws-sub">Developing scalable web architectures, intuitive user interfaces, and robust database backends with modern frameworks.</p>
+              <div class="ws-tags">
+                <span>REACT.JS</span>
+                <span>NODE.JS</span>
+                <span>MONGODB</span>
+                <span>SQL / MYSQL</span>
+                <span>REST APIS</span>
+                <span>JWT AUTH</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toast Notification for Micro-interactions -->
+    <div id="toast" class="toast-notification">✓ Copied to clipboard!</div>
+
+    <!-- Interactive Project Modal Lightbox -->
+    <div id="project-modal" class="project-modal">
+      <div class="modal-backdrop"></div>
+      <div class="modal-card">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <div class="modal-media">
+          <img id="modal-img" src="" alt="Project Preview" />
+        </div>
+        <div class="modal-body">
+          <span id="modal-badge" class="modal-badge">01</span>
+          <h3 id="modal-title" class="modal-title">PROJECT TITLE</h3>
+          <p id="modal-category" class="modal-category">CATEGORY</p>
+          <div id="modal-desc" class="modal-desc">Detailed project description explaining the UX strategy, creative design, and technical execution.</div>
+          <div class="modal-footer">
+            <a href="#contact" class="modal-cta-btn">DISCUSS PROJECT / COLLABORATE ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
