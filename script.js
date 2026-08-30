@@ -47,53 +47,173 @@
   let lastDrawnFrame = -1;
   let firstFrameLoaded = false;
 
-  // Project data for modal lightbox
+  // Project data for modal lightbox with interactive tabbed sections
   const PROJECT_DATA = {
+    cctv: {
+      badge: '01 • AI FORENSICS & CV',
+      title: 'CCTV INSIGHT 👁️',
+      category: 'AI-POWERED FORENSIC VIDEO INVESTIGATION PLATFORM',
+      img: 'assets/cctv_insight.jpg',
+      liveUrl: '',
+      tabs: {
+        overview: `
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 12px;">
+            <span style="background: rgba(6, 182, 212, 0.15); border: 1px solid #06b6d4; color: #22d3ee; font-size: 0.72rem; font-weight: 800; padding: 3px 10px; border-radius: 999px;">● AI SYSTEM COMPLETED</span>
+            <span style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); color: #d1d5db; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 999px;">MONOREPO ARCHITECTURE</span>
+          </div>
+          <p style="margin-bottom: 10px; font-size: 1.05rem; color: #ffffff; line-height: 1.4;"><strong>"Find the moment. Skip the hours."</strong></p>
+          <p style="margin-bottom: 14px; line-height: 1.6; color: #d1d5db;">CCTV Insight is an intelligent security operations center (SOC) web application built to eliminate the tedious hours spent reviewing long surveillance footage. By processing CCTV recordings through computer vision and temporal event aggregation, the system pinpoints critical events and plots them onto an interactive multi-track timeline for instant frame-accurate seeking.</p>
+          
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(6, 182, 212, 0.25); border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+            <div style="font-size: 0.76rem; font-weight: 800; color: #22d3ee; margin-bottom: 10px; letter-spacing: 0.08em; text-transform: uppercase;">Key SOC Capabilities:</div>
+            <ul style="padding-left: 18px; margin: 0; font-size: 0.86rem; line-height: 1.65; color: #d1d5db;">
+              <li><strong>Interactive Multi-Track AI Timeline:</strong> Visualizes events chronologically across multi-hour footage with zoom (1x to 10x) and hover preview tooltips.</li>
+              <li><strong>Frame-Accurate Video Player:</strong> Custom SOC player featuring frame-by-frame stepping, variable playback speed (0.25x - 8x), bounding box overlays, and timecode readouts (HH:MM:SS:FF).</li>
+              <li><strong>Smart Event Filtering:</strong> Instant filtering by event class (Person, Vehicle, Zone Entry, Zone Exit, Multi-Person, Movement), time ranges, and confidence thresholds.</li>
+              <li><strong>Custom Security Zones:</strong> Interactive polygon and rectangular zone creation on the video canvas for intrusion and perimeter surveillance.</li>
+              <li><strong>SOC Executive Dashboard:</strong> Real-time activity analytics, detection breakdown charts, active queue monitors, and processing metrics.</li>
+              <li><strong>Configurable Frame Sampling:</strong> Optimized analysis through configurable FPS sampling (1, 2, 5, 10 FPS).</li>
+            </ul>
+          </div>
+        `,
+        tech: `
+          <p style="margin-bottom: 12px; font-size: 0.95rem; color: #ffffff;"><strong>Modern Full-Stack & Computer Vision Architecture:</strong></p>
+          <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px;">
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px;">
+              <div style="color: #22d3ee; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">Frontend Layer</div>
+              <div style="color: #ffffff; font-size: 0.88rem; font-weight: 600;">React 19 • TypeScript • Vite • Tailwind CSS • Lucide React • Recharts • React Router</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px;">
+              <div style="color: #38bdf8; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">Backend & API Layer</div>
+              <div style="color: #ffffff; font-size: 0.88rem; font-weight: 600;">Python 3.14 • FastAPI • Pydantic v2 • Uvicorn • Async Task Workers</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px;">
+              <div style="color: #34d399; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">Database & Storage</div>
+              <div style="color: #ffffff; font-size: 0.88rem; font-weight: 600;">MongoDB Atlas / Local MongoDB • PyMongo • Chunked Storage Engine</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px;">
+              <div style="color: #f43f5e; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">Computer Vision & Neural Pipeline</div>
+              <div style="color: #ffffff; font-size: 0.88rem; font-weight: 600;">OpenCV • Ultralytics YOLOv8 • DetectionEngine Abstraction • FFmpeg</div>
+            </div>
+          </div>
+        `,
+        structure: `
+          <div style="margin-bottom: 12px;">
+            <div style="color: #22d3ee; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 8px;">Monorepo Project Layout:</div>
+            <pre style="background: #060609; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; font-family: var(--font-code); font-size: 0.75rem; color: #a5f3fc; line-height: 1.45; overflow-x: auto;">
+cctv-insight/
+├── frontend/                     # React + Vite SOC Investigation Interface
+│   ├── src/
+│   │   ├── components/           # Player, timeline, events, custom zones
+│   │   ├── pages/                # Dashboard, VideoLibrary, Upload, Investigation
+│   │   ├── services/             # MockData & Storage engine
+│   │   ├── types/                # Strict TypeScript schemas
+│   │   └── utils/                # Timecode formatters & theme tokens
+├── backend/                      # FastAPI API server & CV Worker
+├── storage/                      # Video uploads, processed chunks & thumbnails
+├── docs/                         # Architecture & API specifications
+└── README.md</pre>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px;">
+            <div style="color: #ffffff; font-weight: 700; font-size: 0.8rem; margin-bottom: 4px;">⚖️ Licensing & Attribution</div>
+            <p style="font-size: 0.78rem; color: #9ca3af; line-height: 1.5; margin: 0;">Developed as an educational & academic project. Ultralytics YOLO: AGPL-3.0; OpenCV: Apache 2.0; FFmpeg: LGPL 2.1+ / GPL 2+.</p>
+          </div>
+        `
+      }
+    },
     suno: {
-      badge: '01 • FEATURED',
+      badge: '02 • FEATURED PLATFORM',
       title: 'SUNO CAMPUS PLATFORM',
       category: 'COLLEGE SOCIAL NETWORK & EVENT MANAGEMENT PLATFORM',
       img: 'assets/sunocampus.png',
       liveUrl: 'https://suno-campus.vercel.app',
-      desc: `<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-               <span style="background: var(--primary-light); border: 1px solid var(--primary-red); color: var(--primary-red); font-size: 0.72rem; font-weight: 800; padding: 2px 8px; border-radius: 999px;">● LIVE PLATFORM</span>
-               <a href="https://suno-campus.vercel.app" target="_blank" rel="noopener" style="color: var(--primary-red); font-size: 0.82rem; font-weight: 700; text-decoration: none;">suno-campus.vercel.app ↗</a>
-             </div>
-             <p style="margin-bottom: 12px; font-size: 1rem; color: #ffffff;"><strong>A modern college social network and centralized campus platform.</strong></p>
-             <p style="margin-bottom: 14px; line-height: 1.6; color: #d1d5db;">Connects students, facilitates hackathons & workshop management, and fosters community collaboration with real-time updates.</p>
-             <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px; margin-bottom: 14px;">
-               <div style="font-size: 0.78rem; font-weight: 800; color: var(--primary-red); margin-bottom: 8px; letter-spacing: 0.08em; text-transform: uppercase;">Key Highlights:</div>
-               <ul style="padding-left: 18px; margin: 0; font-size: 0.88rem; line-height: 1.6; color: #d1d5db;">
-                 <li><strong>Community Hub:</strong> College-wide announcements, opportunities, and discussions</li>
-                 <li><strong>Event System:</strong> Search, registration, calendar notifications, and wishlists</li>
-                 <li><strong>Role-Based Access:</strong> Multi-tier access for Students, Admins, and Contributors</li>
-                 <li><strong>Responsive Routing:</strong> Scalable component architecture with JWT auth</li>
-               </ul>
-             </div>
-             <p style="font-size: 0.88rem;"><strong>Tech Stack:</strong> React • Node.js • Express.js • MongoDB • JWT Authentication • REST APIs</p>`
+      tabs: {
+        overview: `
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+            <span style="background: var(--primary-light); border: 1px solid var(--primary-red); color: var(--primary-red); font-size: 0.72rem; font-weight: 800; padding: 2px 8px; border-radius: 999px;">● LIVE PLATFORM</span>
+            <a href="https://suno-campus.vercel.app" target="_blank" rel="noopener" style="color: var(--primary-red); font-size: 0.82rem; font-weight: 700; text-decoration: none;">suno-campus.vercel.app ↗</a>
+          </div>
+          <p style="margin-bottom: 12px; font-size: 1rem; color: #ffffff;"><strong>A modern college social network and centralized campus platform.</strong></p>
+          <p style="margin-bottom: 14px; line-height: 1.6; color: #d1d5db;">Connects students, facilitates hackathons & workshop management, and fosters community collaboration with real-time updates.</p>
+          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px; margin-bottom: 14px;">
+            <div style="font-size: 0.78rem; font-weight: 800; color: var(--primary-red); margin-bottom: 8px; letter-spacing: 0.08em; text-transform: uppercase;">Key Highlights:</div>
+            <ul style="padding-left: 18px; margin: 0; font-size: 0.88rem; line-height: 1.6; color: #d1d5db;">
+              <li><strong>Community Hub:</strong> College-wide announcements, opportunities, and discussions</li>
+              <li><strong>Event System:</strong> Search, registration, calendar notifications, and wishlists</li>
+              <li><strong>Role-Based Access:</strong> Multi-tier access for Students, Admins, and Contributors</li>
+              <li><strong>Responsive Routing:</strong> Scalable component architecture with JWT auth</li>
+            </ul>
+          </div>
+        `,
+        tech: `
+          <p style="margin-bottom: 12px; font-size: 0.95rem; color: #ffffff;"><strong>Full-Stack JavaScript Architecture:</strong></p>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px;">
+              <div style="color: var(--primary-red); font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">Frontend Framework</div>
+              <div style="color: #ffffff; font-size: 0.88rem; font-weight: 600;">React.js • React Router • Custom CSS Modules • Responsive UI</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px;">
+              <div style="color: var(--primary-red); font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">Backend & API</div>
+              <div style="color: #ffffff; font-size: 0.88rem; font-weight: 600;">Node.js • Express.js • RESTful Endpoints • JWT Authentication • Bcrypt</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px;">
+              <div style="color: var(--primary-red); font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">Database</div>
+              <div style="color: #ffffff; font-size: 0.88rem; font-weight: 600;">MongoDB • Mongoose ODM • Cloud Database Clustering</div>
+            </div>
+          </div>
+        `,
+        structure: `
+          <p style="color: #ffffff; font-size: 0.9rem; margin-bottom: 10px;"><strong>Deployment & Monorepo:</strong></p>
+          <div style="background: #060609; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; font-family: var(--font-code); font-size: 0.78rem; color: #d1d5db; line-height: 1.5; margin-bottom: 12px;">
+            Deployed on Vercel with high-availability serverless routing and MongoDB Atlas cloud database.
+          </div>
+        `
+      }
     },
     cims: {
-      badge: '02 • ONGOING PROJECT',
+      badge: '03 • CCTV OPERATIONS',
       title: 'CAMOPS — OPERATIONS DESK (CIMS)',
       category: 'CCTV & OPERATIONS DESK MANAGEMENT SYSTEM • ONGOING',
       img: 'assets/camops.jpg',
       liveUrl: 'https://cctvtracker.netlify.app/',
-      desc: `<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-               <span style="background: rgba(34, 197, 94, 0.15); border: 1px solid #22c55e; color: #22c55e; font-size: 0.72rem; font-weight: 800; padding: 2px 8px; border-radius: 999px;">● ONGOING PROJECT</span>
-               <a href="https://cctvtracker.netlify.app/" target="_blank" rel="noopener" style="color: #22c55e; font-size: 0.82rem; font-weight: 700; text-decoration: none;">cctvtracker.netlify.app ↗</a>
-             </div>
-             <p style="margin-bottom: 12px; font-size: 1rem; color: #ffffff;"><strong>"Clarity when everything is moving."</strong></p>
-             <p style="margin-bottom: 14px; line-height: 1.6; color: #d1d5db;">CamOps is an operations desk platform that helps teams monitor CCTV assets, track operational status, manage equipment failures, and ensure smooth field operations.</p>
-             <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px; margin-bottom: 14px;">
-               <div style="font-size: 0.78rem; font-weight: 800; color: #22c55e; margin-bottom: 8px; letter-spacing: 0.08em; text-transform: uppercase;">Core Modules & Features:</div>
-               <ul style="padding-left: 18px; margin: 0; font-size: 0.88rem; line-height: 1.6; color: #d1d5db;">
-                 <li><strong>Centralized Operations:</strong> Monitor assets, locations, and teams in one place</li>
-                 <li><strong>Failure Management:</strong> Track, prioritize, and resolve equipment malfunctions</li>
-                 <li><strong>Live Insights:</strong> Real-time operational metrics, confirmations, and alert workflows</li>
-                 <li><strong>Role-Based Access:</strong> Secure, role-specific workspace experience with CRUD workflows</li>
-               </ul>
-             </div>
-             <p style="font-size: 0.88rem;"><strong>Tech Stack:</strong> React • Node.js • MongoDB • Chart.js • REST APIs • CRUD Workflows</p>`
+      tabs: {
+        overview: `
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+            <span style="background: rgba(34, 197, 94, 0.15); border: 1px solid #22c55e; color: #22c55e; font-size: 0.72rem; font-weight: 800; padding: 2px 8px; border-radius: 999px;">● ONGOING PROJECT</span>
+            <a href="https://cctvtracker.netlify.app/" target="_blank" rel="noopener" style="color: #22c55e; font-size: 0.82rem; font-weight: 700; text-decoration: none;">cctvtracker.netlify.app ↗</a>
+          </div>
+          <p style="margin-bottom: 12px; font-size: 1rem; color: #ffffff;"><strong>"Clarity when everything is moving."</strong></p>
+          <p style="margin-bottom: 14px; line-height: 1.6; color: #d1d5db;">CamOps is an operations desk platform that helps teams monitor CCTV assets, track operational status, manage equipment failures, and ensure smooth field operations.</p>
+          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 14px; margin-bottom: 14px;">
+            <div style="font-size: 0.78rem; font-weight: 800; color: #22c55e; margin-bottom: 8px; letter-spacing: 0.08em; text-transform: uppercase;">Core Modules & Features:</div>
+            <ul style="padding-left: 18px; margin: 0; font-size: 0.88rem; line-height: 1.6; color: #d1d5db;">
+              <li><strong>Centralized Operations:</strong> Monitor assets, locations, and teams in one place</li>
+              <li><strong>Failure Management:</strong> Track, prioritize, and resolve equipment malfunctions</li>
+              <li><strong>Live Insights:</strong> Real-time operational metrics, confirmations, and alert workflows</li>
+              <li><strong>Role-Based Access:</strong> Secure, role-specific workspace experience with CRUD workflows</li>
+            </ul>
+          </div>
+        `,
+        tech: `
+          <p style="margin-bottom: 12px; font-size: 0.95rem; color: #ffffff;"><strong>Operations Architecture:</strong></p>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px;">
+              <div style="color: #22c55e; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">Frontend & Charts</div>
+              <div style="color: #ffffff; font-size: 0.88rem; font-weight: 600;">React.js • Chart.js • Data Visualizations • Responsive Dashboard</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px;">
+              <div style="color: #22c55e; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">Backend & Database</div>
+              <div style="color: #ffffff; font-size: 0.88rem; font-weight: 600;">Node.js • Express • MongoDB • CRUD Incident Workflows</div>
+            </div>
+          </div>
+        `,
+        structure: `
+          <p style="color: #ffffff; font-size: 0.9rem; margin-bottom: 10px;"><strong>Deployment:</strong></p>
+          <div style="background: #060609; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; font-family: var(--font-code); font-size: 0.78rem; color: #d1d5db; line-height: 1.5;">
+            Deployed live on Netlify with automated continuous deployment and real-time dashboard endpoints.
+          </div>
+        `
+      }
     }
   };
 
@@ -486,8 +606,9 @@
         case 'help':
           printToTerminal(`
             <div style="color:#22d3ee; margin-top:4px;">Available Commands:</div>
-            • <strong style="color:#fff;">skills</strong> — View programming languages, frameworks & databases<br>
+            • <strong style="color:#fff;">skills</strong> — View AI/CV, languages, frameworks & databases<br>
             • <strong style="color:#fff;">projects</strong> — List featured engineering projects<br>
+            • <strong style="color:#fff;">cctv</strong> — View CCTV Insight AI Platform specs & poster<br>
             • <strong style="color:#fff;">education</strong> — View university & graduation status<br>
             • <strong style="color:#fff;">contact</strong> — Show email, phone & direct links<br>
             • <strong style="color:#fff;">hire</strong> — Launch pre-filled inquiry email<br>
@@ -499,22 +620,37 @@
 
         case 'skills':
           printToTerminal(`
-            <div style="color:var(--primary-red); font-weight:700;">[TECHNICAL CAPABILITIES]</div>
-            • <strong>Languages:</strong> Python, JavaScript (ES6+), SQL, HTML5, CSS3<br>
-            • <strong>Frameworks & Libs:</strong> React.js, Node.js, Express.js, RESTful APIs<br>
-            • <strong>Databases:</strong> MongoDB, MySQL<br>
-            • <strong>Developer Tools:</strong> Git, GitHub, JWT Auth, Postman, Linux CLI
+            <div style="color:#22d3ee; font-weight:700;">[AI & COMPUTER VISION]</div>
+            • <strong>AI & CV:</strong> Ultralytics YOLOv8, OpenCV, FastAPI, Python 3.14, FFmpeg<br>
+            <div style="color:var(--primary-red); font-weight:700; margin-top:6px;">[FULL-STACK & DATABASES]</div>
+            • <strong>Frontend:</strong> React 19, TypeScript, Vite, Tailwind CSS, JavaScript (ES6+), HTML5/CSS3<br>
+            • <strong>Backend & APIs:</strong> Node.js, Express.js, RESTful Endpoints, JWT Auth<br>
+            • <strong>Databases:</strong> MongoDB Atlas, PyMongo, MySQL / SQL<br>
+            • <strong>DevOps & Tools:</strong> Docker, Git, GitHub, Postman, Linux CLI
           `);
           break;
 
         case 'projects':
           printToTerminal(`
-            <div style="color:var(--primary-red); font-weight:700;">[FEATURED ENGINEERING PROJECTS]</div>
-            1. <strong>SUNO CAMPUS PLATFORM</strong> (React, Node, Express, MongoDB, JWT)<br>
+            <div style="color:#22d3ee; font-weight:700;">[FEATURED ENGINEERING PROJECTS]</div>
+            1. <strong>CCTV INSIGHT 👁️</strong> (YOLOv8, OpenCV, FastAPI, React 19, MongoDB, Docker)<br>
+               <em>AI-powered forensic video investigation platform for high-density CCTV footage.</em><br>
+            2. <strong>SUNO CAMPUS PLATFORM</strong> (React, Node, Express, MongoDB, JWT)<br>
                <em>A centralized campus event management portal with role-based access.</em><br>
-            2. <strong>CIMS</strong> (CCTV Information Management System)<br>
-               <em>Equipment tracking, CRUD inventory management, and automated alert workflow.</em>
+            3. <strong>CAMOPS — OPERATIONS DESK (CIMS)</strong> (React, Node.js, MongoDB, Chart.js)<br>
+               <em>CCTV equipment tracking, inventory management, and automated alert workflow.</em>
           `);
+          break;
+
+        case 'cctv':
+        case 'cctv-insight':
+          printToTerminal(`
+            <div style="color:#22d3ee; font-weight:700;">[LAUNCHING CCTV INSIGHT INTEL]</div>
+            Opening CCTV Insight forensic investigation studio...
+          `);
+          setTimeout(() => {
+            openModal('cctv');
+          }, 350);
           break;
 
         case 'education':
@@ -577,6 +713,7 @@
             <div class="terminal-chips">
               <button class="t-chip" data-cmd="skills">skills</button>
               <button class="t-chip" data-cmd="projects">projects</button>
+              <button class="t-chip" data-cmd="cctv">cctv</button>
               <button class="t-chip" data-cmd="contact">contact</button>
               <button class="t-chip" data-cmd="hire">hire</button>
               <button class="t-chip" data-cmd="help">help</button>
@@ -645,7 +782,17 @@
         playSound('click');
 
         // Flash related project card
-        if (['react', 'node', 'express', 'mongo', 'js'].includes(tech)) {
+        if (['yolo', 'opencv', 'fastapi', 'python', 'docker', 'ffmpeg'].includes(tech)) {
+          const cctvCard = document.querySelector('[data-project="cctv"]');
+          if (cctvCard) {
+            cctvCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            cctvCard.style.boxShadow = '0 0 40px #06b6d4';
+            setTimeout(() => {
+              cctvCard.style.boxShadow = '';
+            }, 1800);
+            showToast(`🔥 ${tag.textContent} powers "CCTV Insight" AI Forensics!`);
+          }
+        } else if (['react', 'node', 'express', 'mongo', 'jwt', 'js'].includes(tech)) {
           const sunoCard = document.querySelector('[data-project="suno"]');
           if (sunoCard) {
             sunoCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -654,6 +801,16 @@
               sunoCard.style.boxShadow = '';
             }, 1800);
             showToast(`🔥 ${tag.textContent} is used in "Suno Campus Platform"!`);
+          }
+        } else if (['crud', 'chart', 'mysql', 'sql'].includes(tech)) {
+          const cimsCard = document.querySelector('[data-project="cims"]');
+          if (cimsCard) {
+            cimsCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            cimsCard.style.boxShadow = '0 0 35px #22c55e';
+            setTimeout(() => {
+              cimsCard.style.boxShadow = '';
+            }, 1800);
+            showToast(`⚡ ${tag.textContent} powers "CamOps Operations Desk"!`);
           }
         } else {
           showToast(`⚡ Skill: ${tag.textContent}`);
@@ -748,15 +905,36 @@
     playSound('click');
   };
 
+  let currentModalProjectKey = 'cctv';
+  let currentModalTab = 'overview';
+
+  const setModalTab = (tabKey) => {
+    currentModalTab = tabKey;
+    const data = PROJECT_DATA[currentModalProjectKey];
+    if (!data) return;
+
+    document.querySelectorAll('.modal-tab-btn').forEach((btn) => {
+      btn.classList.toggle('active', btn.getAttribute('data-tab') === tabKey);
+    });
+
+    if (data.tabs && data.tabs[tabKey]) {
+      modalDesc.innerHTML = data.tabs[tabKey];
+    } else if (data.desc) {
+      modalDesc.innerHTML = data.desc;
+    }
+  };
+
   const openModal = (key) => {
     const data = PROJECT_DATA[key];
     if (!data || !modal) return;
 
+    currentModalProjectKey = key;
     modalBadge.textContent = data.badge;
     modalTitle.textContent = data.title;
     modalCategory.textContent = data.category;
     modalImg.src = data.img;
-    modalDesc.innerHTML = data.desc;
+
+    setModalTab('overview');
 
     if (modalLiveBtn) {
       if (data.liveUrl) {
@@ -781,6 +959,41 @@
     playSound('click');
   };
 
+  // Interactive Project Category Filter Engine
+  const initProjectFilter = () => {
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const filter = tab.getAttribute('data-filter');
+        filterTabs.forEach((t) => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        playSound('click');
+
+        projectCards.forEach((card) => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.classList.remove('is-hidden');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(10px)';
+            setTimeout(() => {
+              card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 30);
+          } else {
+            card.classList.add('is-hidden');
+          }
+        });
+      });
+    });
+  };
+
   const initProjectModal = () => {
     document.querySelectorAll('.project-card').forEach((card) => {
       card.addEventListener('click', () => {
@@ -789,8 +1002,34 @@
       });
     });
 
+    document.querySelectorAll('.modal-tab-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const tab = btn.getAttribute('data-tab');
+        if (tab) {
+          playSound('click');
+          setModalTab(tab);
+        }
+      });
+    });
+
+    const mobileExpandPosterBtn = document.getElementById('mobile-expand-poster-btn');
+    const modalPosterViewBtn = document.getElementById('modal-poster-view-btn');
+
     if (modalMediaWrap) {
       modalMediaWrap.addEventListener('click', openPosterZoom);
+    }
+    if (mobileExpandPosterBtn) {
+      mobileExpandPosterBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openPosterZoom();
+      });
+    }
+    if (modalPosterViewBtn) {
+      modalPosterViewBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openPosterZoom();
+      });
     }
 
     if (posterZoomClose) posterZoomClose.addEventListener('click', closePosterZoom);
@@ -832,6 +1071,7 @@
     initCursorGlow();
     initScrollReveal();
     initClickToCopy();
+    initProjectFilter();
     initProjectModal();
     updateLiveTime();
     setInterval(updateLiveTime, 1000);

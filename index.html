@@ -136,10 +136,10 @@
             <span class="name-line">MIHIR</span>
             <span class="name-line">YOGI</span>
           </h1>
-          <div class="hero-role-badge">COMPUTER ENGINEERING STUDENT</div>
-          <h2 class="hero-subheading">WEB & DATABASE TECHNOLOGY ENTHUSIAST</h2>
+          <div class="hero-role-badge">COMPUTER ENGINEERING • AI & WEB SYSTEMS</div>
+          <h2 class="hero-subheading">AI / COMPUTER VISION & FULL-STACK WEB DEVELOPER</h2>
           <p class="hero-bio">
-            I’m a Computer Engineering student with hands-on experience in web development, databases, and real-world projects. I build responsive web interfaces and work with modern technologies including React.js, JavaScript, Node.js, Express.js, MongoDB, SQL, HTML, and CSS.
+            I’m a Computer Engineering student with hands-on experience in AI-powered computer vision, full-stack web development, and high-performance databases. I build scalable forensic video intelligence systems and responsive web applications using YOLOv8, OpenCV, FastAPI, Python, React 19, Node.js, Express, MongoDB, and SQL.
           </p>
           <div class="hero-actions">
             <div class="hero-location">
@@ -181,7 +181,7 @@
             </div>
             <div class="stat-info">
               <span class="stat-label">SPECIALIZED IN</span>
-              <span class="stat-value">WEB DEVELOPMENT<br>UI & DATABASES</span>
+              <span class="stat-value">AI FORENSICS • CV<br>FULL-STACK & DATABASES</span>
             </div>
           </div>
 
@@ -206,8 +206,8 @@
               </svg>
             </div>
             <div class="stat-info">
-              <span class="stat-label">TECHNOLOGY STACK</span>
-              <span class="stat-value">REACT • NODE • MONGO • SQL</span>
+              <span class="stat-label">CORE TECH STACK</span>
+              <span class="stat-value">YOLOV8 • FASTAPI • REACT • MONGO</span>
             </div>
           </div>
         </div>
@@ -217,7 +217,10 @@
     <!-- Selected Projects Section -->
     <section id="projects" class="section-container projects-section reveal-item">
       <div class="section-header-flex">
-        <h2 class="section-title">SELECTED PROJECTS</h2>
+        <div>
+          <h2 class="section-title">FEATURED & APPLIED PROJECTS</h2>
+          <p class="section-subtitle">Real-world AI systems, forensic intelligence platforms, and scalable web applications.</p>
+        </div>
         <a href="#contact" class="view-all-link">
           COLLABORATE ON A PROJECT
           <span class="arrow-box">
@@ -229,14 +232,80 @@
         </a>
       </div>
 
-      <div class="projects-grid projects-grid-two">
-        <!-- Project 1: Suno Campus Platform -->
-        <article class="project-card tilt-card-3d" data-project="suno">
+      <!-- Smart Category Filter Tabs -->
+      <div class="projects-filter-bar" role="tablist" aria-label="Filter Projects">
+        <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
+          <span class="filter-dot"></span>
+          <span>All Projects</span>
+          <span class="filter-count">3</span>
+        </button>
+        <button class="filter-tab" data-filter="ai" role="tab" aria-selected="false">
+          <span class="filter-dot filter-dot-ai"></span>
+          <span>AI & Computer Vision</span>
+          <span class="filter-count">1</span>
+        </button>
+        <button class="filter-tab" data-filter="web" role="tab" aria-selected="false">
+          <span class="filter-dot filter-dot-web"></span>
+          <span>Full Stack & Web Apps</span>
+          <span class="filter-count">2</span>
+        </button>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: CCTV Insight 👁️ (Flagship AI Forensics) -->
+        <article class="project-card project-card-flagship tilt-card-3d" data-project="cctv" data-category="ai">
           <div class="project-thumb-box">
-            <span class="project-badge">01</span>
+            <span class="project-badge badge-ai">01 • AI FORENSICS & CV</span>
+            <img src="assets/cctv_insight.jpg" alt="CCTV Insight - AI-Powered Forensic Video Investigation Platform" class="project-img" loading="lazy" />
+            <div class="project-hover-overlay">
+              <span class="view-project-btn">EXPLORE SYSTEM & POSTER ↗</span>
+            </div>
+            <div class="mobile-tap-indicator">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+              <span>Tap for Story & Poster</span>
+            </div>
+          </div>
+          <div class="project-meta">
+            <div class="project-tech-badges">
+              <span class="badge-accent-cyan">YOLOV8</span>
+              <span class="badge-accent-cyan">FASTAPI</span>
+              <span class="badge-accent-cyan">OPENCV</span>
+              <span class="badge-accent-cyan">REACT 19</span>
+              <span>MONGODB</span>
+              <span>DOCKER</span>
+            </div>
+            <h3 class="project-name">CCTV INSIGHT 👁️</h3>
+            <p class="project-category">AI-POWERED FORENSIC VIDEO INVESTIGATION PLATFORM</p>
+            <p class="project-summary">Intelligent SOC web application for high-density surveillance analysis. Pinpoints critical events (people, vehicles, intrusions) and maps them onto a multi-track AI timeline for instant frame-accurate seeking.</p>
+            <div class="project-quick-features">
+              <span class="feat-chip">Multi-Track AI Timeline</span>
+              <span class="feat-chip">Frame-by-Frame Player</span>
+              <span class="feat-chip">Custom Security Zones</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Suno Campus Platform -->
+        <article class="project-card tilt-card-3d" data-project="suno" data-category="web">
+          <div class="project-thumb-box">
+            <span class="project-badge">02 • CAMPUS PLATFORM</span>
             <img src="assets/sunocampus.png" alt="SunoCampus - College Social Network & Event Management Platform" class="project-img" loading="lazy" />
             <div class="project-hover-overlay">
               <span class="view-project-btn">VIEW DETAILS & DEMO ↗</span>
+            </div>
+            <div class="mobile-tap-indicator">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+              <span>Tap for Details</span>
             </div>
           </div>
           <div class="project-meta">
@@ -249,17 +318,31 @@
             </div>
             <h3 class="project-name">SUNO CAMPUS PLATFORM</h3>
             <p class="project-category">COLLEGE SOCIAL NETWORK & EVENT PLATFORM</p>
-            <p class="project-summary">A centralized campus platform for managing hackathons, workshops, announcements, and opportunities with role-based access for Students, Admins, and Contributors.</p>
+            <p class="project-summary">Centralized campus platform for managing hackathons, workshops, announcements, and opportunities with role-based access for Students, Admins, and Contributors.</p>
+            <div class="project-quick-features">
+              <span class="feat-chip">Role-Based Access</span>
+              <span class="feat-chip">Event Registry</span>
+              <span class="feat-chip">Campus Feeds</span>
+            </div>
           </div>
         </article>
 
-        <!-- Project 2: CamOps (CIMS) - Ongoing Project -->
-        <article class="project-card tilt-card-3d" data-project="cims">
+        <!-- Project 3: CamOps (CIMS) - Ongoing Project -->
+        <article class="project-card tilt-card-3d" data-project="cims" data-category="web">
           <div class="project-thumb-box">
-            <span class="project-badge badge-ongoing">02 • ONGOING</span>
+            <span class="project-badge badge-ongoing">03 • CCTV OPERATIONS</span>
             <img src="assets/camops.jpg" alt="CamOps - Operations Desk & CCTV Management System" class="project-img" loading="lazy" />
             <div class="project-hover-overlay">
               <span class="view-project-btn">VIEW DETAILS & DEMO ↗</span>
+            </div>
+            <div class="mobile-tap-indicator">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+              <span>Tap for Details</span>
             </div>
           </div>
           <div class="project-meta">
@@ -272,7 +355,12 @@
             </div>
             <h3 class="project-name">CAMOPS — OPERATIONS DESK (CIMS)</h3>
             <p class="project-category">CCTV & OPERATIONS MANAGEMENT SYSTEM • ONGOING</p>
-            <p class="project-summary">An operations desk platform designed to track CCTV equipment inventory, status, service history, malfunction workflows, and live monitoring dashboards.</p>
+            <p class="project-summary">Operations desk platform designed to track CCTV equipment inventory, status, service history, malfunction workflows, and live monitoring dashboards.</p>
+            <div class="project-quick-features">
+              <span class="feat-chip">Inventory Tracker</span>
+              <span class="feat-chip">Failure Workflow</span>
+              <span class="feat-chip">Alert Desk</span>
+            </div>
           </div>
         </article>
       </div>
@@ -308,32 +396,33 @@
           <div class="sub-block">
             <h3 class="sub-block-title">TECHNICAL SKILLS</h3>
             
-            <p class="skill-category-label">LANGUAGES</p>
+            <p class="skill-category-label">AI & COMPUTER VISION</p>
             <div class="skills-tags-wrap mb-10">
+              <span class="skill-tag" data-tech="yolo">Ultralytics YOLOv8</span>
+              <span class="skill-tag" data-tech="opencv">OpenCV</span>
+              <span class="skill-tag" data-tech="fastapi">FastAPI</span>
               <span class="skill-tag" data-tech="python">Python</span>
-              <span class="skill-tag" data-tech="sql">SQL</span>
-              <span class="skill-tag" data-tech="js">JavaScript</span>
-              <span class="skill-tag" data-tech="html">HTML</span>
-              <span class="skill-tag" data-tech="css">CSS</span>
+              <span class="skill-tag" data-tech="ffmpeg">FFmpeg</span>
             </div>
 
-            <p class="skill-category-label">FRAMEWORKS & DATABASES</p>
+            <p class="skill-category-label">FULL-STACK & DATABASES</p>
             <div class="skills-tags-wrap mb-10">
-              <span class="skill-tag" data-tech="react">React</span>
+              <span class="skill-tag" data-tech="react">React 19</span>
               <span class="skill-tag" data-tech="node">Node.js</span>
               <span class="skill-tag" data-tech="express">Express.js</span>
               <span class="skill-tag" data-tech="mongo">MongoDB</span>
-              <span class="skill-tag" data-tech="mysql">MySQL</span>
+              <span class="skill-tag" data-tech="sql">SQL / MySQL</span>
+              <span class="skill-tag" data-tech="js">JavaScript</span>
             </div>
 
-            <p class="skill-category-label">TOOLS & CORE STRENGTHS</p>
+            <p class="skill-category-label">DEV TOOLS & CORE STRENGTHS</p>
             <div class="skills-tags-wrap">
+              <span class="skill-tag" data-tech="docker">Docker</span>
               <span class="skill-tag" data-tech="git">Git</span>
               <span class="skill-tag" data-tech="github">GitHub</span>
               <span class="skill-tag">Problem Solving</span>
-              <span class="skill-tag">Team Collaboration</span>
-              <span class="skill-tag">Leadership</span>
-              <span class="skill-tag">Quick Learning</span>
+              <span class="skill-tag">SOC Architecture</span>
+              <span class="skill-tag">Rapid Prototyping</span>
             </div>
           </div>
         </div>
@@ -588,13 +677,28 @@
                 <line x1="11" y1="8" x2="11" y2="14"></line>
                 <line x1="8" y1="11" x2="14" y2="11"></line>
               </svg>
-              <span>Click to Expand Poster</span>
+              <span>Click to Expand Full Poster</span>
             </div>
           </div>
+          <button id="mobile-expand-poster-btn" class="mobile-poster-btn" title="View Poster Fullscreen">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <polyline points="9 21 3 21 3 15"></polyline>
+              <line x1="21" y1="3" x2="14" y2="10"></line>
+              <line x1="3" y1="21" x2="10" y2="14"></line>
+            </svg>
+            <span>Expand Full Poster</span>
+          </button>
         </div>
 
         <!-- Right Pane: Scrollable Project Story & Live Actions -->
         <div class="modal-info-pane">
+          <div class="modal-tabs-bar" id="modal-tabs-bar">
+            <button class="modal-tab-btn active" data-tab="overview">Overview & Highlights</button>
+            <button class="modal-tab-btn" data-tab="tech">AI & Tech Stack</button>
+            <button class="modal-tab-btn" data-tab="structure">Architecture & Monorepo</button>
+          </div>
+
           <div class="modal-info-scroll">
             <div class="modal-header-row">
               <span id="modal-badge" class="modal-badge">01</span>
@@ -614,6 +718,14 @@
               </svg>
               <span>VIEW LIVE DEMO ↗</span>
             </a>
+            <button id="modal-poster-view-btn" class="modal-poster-action-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+              <span>VIEW FULL POSTER</span>
+            </button>
             <a href="#contact" class="modal-cta-btn">COLLABORATE / DISCUSS ↗</a>
           </div>
         </div>
