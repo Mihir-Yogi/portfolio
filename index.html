@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mihir Yogi — Computer Engineering Student & Web Technology Portfolio</title>
-  <meta name="description" content="Portfolio of Mihir Yogi - Computer Engineering Student & Web Technology Enthusiast." />
+  <title>Mihir Yogi — Computer Engineering & Software Portfolio</title>
+  <meta name="description" content="Portfolio of Mihir Yogi - Computer Engineering Student, AI/Computer Vision & Web Developer." />
   
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600;700&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
@@ -14,10 +13,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Custom Subtle Glow Cursor -->
   <div id="cursor-glow" class="cursor-glow"></div>
 
-  <!-- Landing Preloader Screen -->
+  <!-- Preloader -->
   <div id="loader" class="loader">
     <div class="loader-content">
       <div class="loader-brand">MIHIR YOGI</div>
@@ -25,13 +23,13 @@
         <div id="loader-bar" class="loader-bar"></div>
       </div>
       <div class="loader-status">
-        <span>LOADING EXPERIENCE</span>
+        <span>LOADING...</span>
         <span id="loader-percent">0%</span>
       </div>
     </div>
   </div>
 
-  <!-- Floating Quick Nav & Unified Action Dock -->
+  <!-- Navigation Dock -->
   <nav id="floating-dock" class="floating-dock">
     <a href="#hero" class="dock-item active" data-tooltip="Home" aria-label="Home">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -64,16 +62,15 @@
     <div id="scroll-percentage" class="scroll-percentage" title="Scroll Progress">0%</div>
   </nav>
 
-  <!-- Background Scroll Animation Canvas -->
+  <!-- Canvas -->
   <div class="canvas-container">
     <canvas id="animation-canvas"></canvas>
     <div class="canvas-overlay"></div>
   </div>
 
-  <!-- Layer 2: Main Content Layer -->
   <div class="portfolio-wrapper">
     
-    <!-- Top Navigation Header -->
+    <!-- Header -->
     <header class="top-nav anim-fade-in">
       <div class="brand-tag">
         <span class="tag-line"></span>
@@ -81,16 +78,14 @@
       </div>
 
       <div class="nav-right-actions">
-        <!-- Interactive Theme Palette Switcher -->
-        <div class="theme-palette-picker" title="Switch Accent Palette">
-          <button class="theme-dot active" data-theme="crimson" style="background:#e11d48;" title="Crimson Red"></button>
-          <button class="theme-dot" data-theme="cyan" style="background:#06b6d4;" title="Cyber Cyan"></button>
-          <button class="theme-dot" data-theme="emerald" style="background:#10b981;" title="Emerald Matrix"></button>
-          <button class="theme-dot" data-theme="violet" style="background:#8b5cf6;" title="Electric Violet"></button>
+        <div class="theme-palette-picker" title="Switch Theme">
+          <button class="theme-dot active" data-theme="crimson" style="background:#e11d48;" title="Crimson"></button>
+          <button class="theme-dot" data-theme="cyan" style="background:#06b6d4;" title="Cyan"></button>
+          <button class="theme-dot" data-theme="emerald" style="background:#10b981;" title="Emerald"></button>
+          <button class="theme-dot" data-theme="violet" style="background:#8b5cf6;" title="Violet"></button>
         </div>
 
-        <!-- UI Audio FX Toggle -->
-        <button id="sound-toggle" class="sound-toggle-btn" title="Toggle Futuristic Audio FX">
+        <button id="sound-toggle" class="sound-toggle-btn" title="Toggle Sound FX">
           <svg id="sound-icon-on" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
@@ -126,10 +121,9 @@
       </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="hero" class="hero-section">
       <div class="hero-content-grid">
-        <!-- Left Hero Content -->
         <div class="hero-intro anim-hero-left">
           <p class="hero-script">Hello, I'm</p>
           <h1 class="hero-name">
@@ -139,7 +133,7 @@
           <div class="hero-role-badge">COMPUTER ENGINEERING • AI & WEB SYSTEMS</div>
           <h2 class="hero-subheading">AI / COMPUTER VISION & FULL-STACK WEB DEVELOPER</h2>
           <p class="hero-bio">
-            I’m a Computer Engineering student with hands-on experience in AI-powered computer vision, full-stack web development, and high-performance databases. I build scalable forensic video intelligence systems and responsive web applications using YOLOv8, OpenCV, FastAPI, Python, React 19, Node.js, Express, MongoDB, and SQL.
+            I’m a Computer Engineering student with hands-on experience in computer vision, full-stack web development, and database architecture. I build surveillance investigation tools and responsive web applications using YOLOv8, OpenCV, FastAPI, Python, React, Node.js, Express, MongoDB, and SQL.
           </p>
           <div class="hero-actions">
             <div class="hero-location">
@@ -153,10 +147,8 @@
           </div>
         </div>
 
-        <!-- Center Open Spacer so Portrait is 100% Visible & Uncovered -->
         <div class="hero-portrait-spacer"></div>
 
-        <!-- Right Hero Stats / Badges -->
         <div class="hero-stats anim-hero-right">
           <div class="stat-card tilt-card-3d stagger-1">
             <div class="stat-icon-wrapper">
@@ -181,7 +173,7 @@
             </div>
             <div class="stat-info">
               <span class="stat-label">SPECIALIZED IN</span>
-              <span class="stat-value">AI FORENSICS • CV<br>FULL-STACK & DATABASES</span>
+              <span class="stat-value">CV & FORENSICS<br>FULL-STACK & DATABASES</span>
             </div>
           </div>
 
@@ -214,12 +206,12 @@
       </div>
     </section>
 
-    <!-- Selected Projects Section -->
+    <!-- Projects -->
     <section id="projects" class="section-container projects-section reveal-item">
       <div class="section-header-flex">
         <div>
-          <h2 class="section-title">FEATURED & APPLIED PROJECTS</h2>
-          <p class="section-subtitle">Real-world AI systems, forensic intelligence platforms, and scalable web applications.</p>
+          <h2 class="section-title">FEATURED PROJECTS</h2>
+          <p class="section-subtitle">Real-world computer vision systems, forensics platforms, and scalable web applications.</p>
         </div>
         <a href="#contact" class="view-all-link">
           COLLABORATE ON A PROJECT
@@ -232,7 +224,6 @@
         </a>
       </div>
 
-      <!-- Smart Category Filter Tabs -->
       <div class="projects-filter-bar" role="tablist" aria-label="Filter Projects">
         <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
           <span class="filter-dot"></span>
@@ -252,7 +243,6 @@
       </div>
 
       <div class="projects-grid">
-        <!-- Project 1: CCTV Insight 👁️ (Flagship AI Forensics) -->
         <article class="project-card project-card-flagship tilt-card-3d" data-project="cctv" data-category="ai">
           <div class="project-thumb-box">
             <span class="project-badge badge-ai">01 • AI FORENSICS & CV</span>
@@ -290,7 +280,6 @@
           </div>
         </article>
 
-        <!-- Project 2: Suno Campus Platform -->
         <article class="project-card tilt-card-3d" data-project="suno" data-category="web">
           <div class="project-thumb-box">
             <span class="project-badge">02 • CAMPUS PLATFORM</span>
@@ -327,7 +316,6 @@
           </div>
         </article>
 
-        <!-- Project 3: CamOps (CIMS) - Ongoing Project -->
         <article class="project-card tilt-card-3d" data-project="cims" data-category="web">
           <div class="project-thumb-box">
             <span class="project-badge badge-ongoing">03 • CCTV OPERATIONS</span>
@@ -366,11 +354,10 @@
       </div>
     </section>
 
-    <!-- Education, Skills, Work Process & Certifications Grid -->
+    <!-- About & Skills -->
     <section id="about" class="section-container info-section reveal-item">
       <div class="info-three-col-grid">
         
-        <!-- Column 1: Education & Technical Skills -->
         <div class="info-col education-skills-col">
           <h2 class="col-title">EDUCATION & SKILLS</h2>
 
@@ -427,12 +414,10 @@
           </div>
         </div>
 
-        <!-- Column 2: Work Process -->
         <div class="info-col work-process-col">
           <h2 class="col-title">WORK PROCESS</h2>
           
           <div class="process-timeline">
-            <!-- Step 1 -->
             <div class="process-step">
               <div class="step-badge-wrap">
                 <span class="step-num">01</span>
@@ -444,7 +429,6 @@
               </div>
             </div>
 
-            <!-- Step 2 -->
             <div class="process-step">
               <div class="step-badge-wrap">
                 <span class="step-num">02</span>
@@ -456,7 +440,6 @@
               </div>
             </div>
 
-            <!-- Step 3 -->
             <div class="process-step">
               <div class="step-badge-wrap">
                 <span class="step-num">03</span>
@@ -468,7 +451,6 @@
               </div>
             </div>
 
-            <!-- Step 4 -->
             <div class="process-step">
               <div class="step-badge-wrap">
                 <span class="step-num">04</span>
@@ -480,7 +462,6 @@
               </div>
             </div>
 
-            <!-- Step 5 -->
             <div class="process-step">
               <div class="step-badge-wrap">
                 <span class="step-num">05</span>
@@ -493,7 +474,6 @@
           </div>
         </div>
 
-        <!-- Column 3: Certifications Card -->
         <div class="info-col certifications-card-col">
           <h2 class="col-title cert-head">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary-red)" stroke-width="2">
@@ -504,7 +484,6 @@
           </h2>
 
           <div class="cert-list">
-            <!-- Cert 1 -->
             <div class="cert-item">
               <div class="cert-icon-dot"></div>
               <div class="cert-content">
@@ -514,7 +493,6 @@
               </div>
             </div>
 
-            <!-- Cert 2 -->
             <div class="cert-item">
               <div class="cert-icon-dot"></div>
               <div class="cert-content">
@@ -524,7 +502,6 @@
               </div>
             </div>
 
-            <!-- Cert 3 -->
             <div class="cert-item">
               <div class="cert-icon-dot"></div>
               <div class="cert-content">
@@ -544,10 +521,9 @@
       </div>
     </section>
 
-    <!-- Let's Work Together / Contact Footer -->
+    <!-- Contact -->
     <section id="contact" class="section-container contact-section reveal-item">
       <div class="contact-grid">
-        <!-- Left Contact Info -->
         <div class="contact-info-block">
           <h2 class="contact-title">
             LET’S WORK <span class="accent-dot">•</span> TOGETHER
@@ -556,9 +532,8 @@
             I'm open to internships, technical opportunities, project collaborations, and opportunities where I can apply my skills while continuing to grow as a Computer Engineer.
           </p>
 
-          <!-- Interactive Quick Intent Selector -->
           <div class="intent-selector-wrap">
-            <p class="intent-label">SELECT YOUR INTENT TO QUICK-DRAFT:</p>
+            <p class="intent-label">QUICK INQUIRY DRAFT:</p>
             <div class="intent-pills">
               <button class="intent-btn active" data-subject="Internship Opportunity Inquiry - Mihir Yogi" data-body="Hi Mihir, I came across your portfolio and would like to discuss an internship opportunity with you.">💼 Internship</button>
               <button class="intent-btn" data-subject="Project Collaboration - Mihir Yogi" data-body="Hi Mihir, I'd like to collaborate with you on an exciting software development project.">🚀 Project Collab</button>
@@ -632,7 +607,6 @@
           </a>
         </div>
 
-        <!-- Right Workspace Showcase Card -->
         <div class="contact-showcase-block">
           <div class="workspace-glass-card tilt-card-3d">
             <div class="workspace-header">
@@ -657,16 +631,15 @@
       </div>
     </section>
 
-    <!-- Toast Notification for Micro-interactions -->
-    <div id="toast" class="toast-notification">✓ Copied to clipboard!</div>
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification">Copied to clipboard</div>
 
-    <!-- Interactive Project Modal Lightbox (Dual-Pane Studio) -->
+    <!-- Project Modal -->
     <div id="project-modal" class="project-modal" role="dialog" aria-modal="true">
       <div class="modal-backdrop"></div>
       <div class="modal-card">
         <button class="modal-close" aria-label="Close modal">&times;</button>
         
-        <!-- Left Pane: Full Poster Display with Interactive Zoom -->
         <div class="modal-media-pane">
           <div class="modal-media-wrap" id="modal-media-wrap" title="Click to view full poster">
             <img id="modal-img" src="" alt="Project Poster Preview" />
@@ -691,7 +664,6 @@
           </button>
         </div>
 
-        <!-- Right Pane: Scrollable Project Story & Live Actions -->
         <div class="modal-info-pane">
           <div class="modal-tabs-bar" id="modal-tabs-bar">
             <button class="modal-tab-btn active" data-tab="overview">Overview & Highlights</button>
@@ -708,7 +680,6 @@
             <div id="modal-desc" class="modal-desc">Detailed project description.</div>
           </div>
 
-          <!-- Sticky Bottom Action Bar -->
           <div class="modal-footer-sticky">
             <a id="modal-live-btn" href="#" target="_blank" rel="noopener" class="modal-live-btn" style="display:none;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -732,7 +703,7 @@
       </div>
     </div>
 
-    <!-- Fullscreen Poster Zoom Viewer -->
+    <!-- Fullscreen Poster Modal -->
     <div id="poster-zoom-modal" class="poster-zoom-modal">
       <div class="poster-zoom-backdrop"></div>
       <div class="poster-zoom-content">
@@ -741,7 +712,7 @@
       </div>
     </div>
 
-    <!-- Interactive Hacker Engineering Terminal Modal (Ctrl + K) -->
+    <!-- Terminal Modal -->
     <div id="terminal-modal" class="terminal-modal">
       <div class="terminal-backdrop"></div>
       <div class="terminal-window">
@@ -751,15 +722,16 @@
             <span class="t-dot t-yellow"></span>
             <span class="t-dot t-green"></span>
           </div>
-          <div class="terminal-title">mihir-yogi@engineering-console: ~</div>
+          <div class="terminal-title">mihir-yogi@portfolio: ~</div>
           <button class="terminal-close" aria-label="Close terminal">&times;</button>
         </div>
         <div class="terminal-body" id="terminal-output">
-          <div class="terminal-line"><span class="t-prompt">system:</span> Welcome to Mihir Yogi's Interactive Engineering Console v2.0</div>
-          <div class="terminal-line"><span class="t-prompt">system:</span> Type <span class="t-cmd">help</span> or click quick chips below to explore.</div>
+          <div class="terminal-line"><span class="t-prompt">system:</span> Mihir Yogi Portfolio CLI [Version 1.0.0]</div>
+          <div class="terminal-line"><span class="t-prompt">system:</span> Type <span class="t-cmd">help</span> or click command chips below.</div>
           <div class="terminal-chips">
             <button class="t-chip" data-cmd="skills">skills</button>
             <button class="t-chip" data-cmd="projects">projects</button>
+            <button class="t-chip" data-cmd="cctv">cctv</button>
             <button class="t-chip" data-cmd="education">education</button>
             <button class="t-chip" data-cmd="contact">contact</button>
             <button class="t-chip" data-cmd="hire">hire</button>

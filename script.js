@@ -47,7 +47,7 @@
   let lastDrawnFrame = -1;
   let firstFrameLoaded = false;
 
-  // Project data for modal lightbox with interactive tabbed sections
+  // Project data
   const PROJECT_DATA = {
     cctv: {
       badge: '01 • AI FORENSICS & CV',
@@ -217,13 +217,13 @@ cctv-insight/
     }
   };
 
-  // Generate file path for frame (1-based: ezgif-frame-001.jpg to ezgif-frame-147.jpg)
+  // Frame path generator
   const getFramePath = (index) => {
     const num = String(index + 1).padStart(3, '0');
     return `${FOLDER_NAME}/ezgif-frame-${num}.jpg`;
   };
 
-  // High-DPI canvas resize with crisp rendering
+  // Canvas resize
   const resizeCanvas = () => {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const width = window.innerWidth;
@@ -241,11 +241,11 @@ cctv-insight/
     }
   };
 
-  // Draw image frame centered preserving natural portrait proportions
+  // Draw frame to canvas
   const drawFrame = (index) => {
     let img = images[index];
 
-    // Fallback to nearest loaded frame if specific frame is not ready
+    // Fallback frame
     if (!img || !img.complete || img.naturalWidth === 0) {
       for (let offset = 1; offset < FRAME_COUNT; offset++) {
         const prev = index - offset;
@@ -270,13 +270,13 @@ cctv-insight/
 
     const isMobile = screenW <= 768;
 
-    // Target portrait focus frame dimensions: 683px x 720px
+    // Focus dimensions
     const FOCUS_W = 683;
     const FOCUS_H = 720;
 
     let scale;
     if (isMobile) {
-      // Scale based on the 683px portrait width so the shoulders span the mobile screen width perfectly
+      // Responsive scaling
       scale = screenW / FOCUS_W;
     } else {
       scale = Math.min(screenW / imgW, screenH / imgH);
@@ -286,7 +286,7 @@ cctv-insight/
     const drawH = Math.round(imgH * scale);
 
     const drawX = Math.round((screenW - drawW) / 2);
-    // Position vertically centered with comfortable eye level
+    // Center positioning
     const drawY = Math.round((screenH - drawH) / 2);
 
     ctx.clearRect(0, 0, screenW, screenH);
@@ -297,14 +297,14 @@ cctv-insight/
     lastDrawnFrame = index;
   };
 
-  // Compute scroll fraction (0.0 to 1.0)
+  // Scroll progress
   const getScrollProgress = () => {
     const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
     const maxScroll = Math.max(1, (document.documentElement.scrollHeight || document.body.scrollHeight) - window.innerHeight);
     return Math.min(1, Math.max(0, scrollTop / maxScroll));
   };
 
-  // Update floating dock active state based on scroll position
+  // Update dock state
   const updateActiveDock = () => {
     const sections = ['hero', 'projects', 'about', 'contact'];
     const scrollPos = window.scrollY + window.innerHeight / 3;
@@ -323,7 +323,7 @@ cctv-insight/
     });
   };
 
-  // Smooth inertial animation loop
+  // Animation loop
   const updateLoop = () => {
     targetProgress = getScrollProgress();
 
@@ -341,7 +341,7 @@ cctv-insight/
       scrollPercentage.textContent = `${pct}%`;
     }
 
-    // Smooth dissolve and parallax for background DEVELOPER text
+    // Background parallax
     if (bgLayer) {
       const heroThreshold = window.innerHeight * 0.75;
       const scrollY = window.scrollY || window.pageYOffset || 0;
@@ -362,7 +362,7 @@ cctv-insight/
     requestAnimationFrame(updateLoop);
   };
 
-  // Instant parallel image preloading
+  // Preload assets
   const preloadImages = () => {
     for (let i = 0; i < FRAME_COUNT; i++) {
       const img = new Image();
@@ -393,7 +393,7 @@ cctv-insight/
     }
   };
 
-  // Web Audio Synthesizer Engine (Zero external audio files)
+  // Audio effects
   const playSound = (type = 'click') => {
     if (!audioEnabled) return;
     try {
@@ -460,7 +460,7 @@ cctv-insight/
     });
   };
 
-  // Theme Accent Palette Switcher
+  // Theme switcher
   const initThemeSwitcher = () => {
     const savedTheme = localStorage.getItem('mihir_portfolio_theme') || 'crimson';
     document.documentElement.setAttribute('data-theme', savedTheme);
@@ -485,11 +485,11 @@ cctv-insight/
     });
   };
 
-  // Real-Time Local IST Clock for Gujarat, India
+  // Live clock
   const updateLiveTime = () => {
     if (!liveTimeBadge) return;
     const now = new Date();
-    // Format to Indian Standard Time (IST)
+    // IST formatter
     const options = {
       timeZone: 'Asia/Kolkata',
       hour: '2-digit',
@@ -501,7 +501,7 @@ cctv-insight/
     liveTimeBadge.textContent = `GUJARAT, INDIA • ${timeString} IST`;
   };
 
-  // 3D Tilt Physics for Cards
+  // 3D card tilt
   const init3DTilt = () => {
     const cards = document.querySelectorAll('.tilt-card-3d');
 
@@ -526,7 +526,7 @@ cctv-insight/
     });
   };
 
-  // Interactive Developer Terminal Modal & CLI Engine
+  // Terminal CLI
   const initTerminal = () => {
     const openTerminal = () => {
       if (!terminalModal) return;
@@ -750,7 +750,7 @@ cctv-insight/
     bindTerminalChips();
   };
 
-  // Interactive Quick Inquiry Intent Selector (Contact Section)
+  // Quick inquiry intent
   const initIntentSelector = () => {
     const buttons = document.querySelectorAll('.intent-btn');
     const emailLink = document.getElementById('email-contact-link');
@@ -774,14 +774,14 @@ cctv-insight/
     });
   };
 
-  // Interactive Skill Tag Highlight Feature
+  // Skill highlights
   const initSkillHighlights = () => {
     document.querySelectorAll('.skill-tag[data-tech]').forEach((tag) => {
       tag.addEventListener('click', () => {
         const tech = tag.getAttribute('data-tech');
         playSound('click');
 
-        // Flash related project card
+        // Spotlight project card
         if (['yolo', 'opencv', 'fastapi', 'python', 'docker', 'ffmpeg'].includes(tech)) {
           const cctvCard = document.querySelector('[data-project="cctv"]');
           if (cctvCard) {
@@ -819,7 +819,7 @@ cctv-insight/
     });
   };
 
-  // Interactive Cursor Glow Tracker
+  // Cursor glow
   const initCursorGlow = () => {
     if (!cursorGlow) return;
     let mouseX = window.innerWidth / 2;
@@ -842,7 +842,7 @@ cctv-insight/
     animateCursor();
   };
 
-  // Scroll Reveal Observer
+  // Scroll reveal
   const initScrollReveal = () => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -858,7 +858,7 @@ cctv-insight/
     document.querySelectorAll('.reveal-item').forEach((el) => observer.observe(el));
   };
 
-  // Toast Notification Helper
+  // Toast message
   const showToast = (message = '✓ Copied to clipboard!') => {
     if (!toast) return;
     toast.textContent = message;
@@ -868,7 +868,7 @@ cctv-insight/
     }, 2200);
   };
 
-  // Click to Copy Feature
+  // Click to copy
   const initClickToCopy = () => {
     document.querySelectorAll('.interactive-copy').forEach((item) => {
       item.addEventListener('click', (e) => {
@@ -885,7 +885,7 @@ cctv-insight/
     });
   };
 
-  // Project Modal Lightbox & Zoom Feature
+  // Project modal & poster zoom
   const modalMediaWrap = document.getElementById('modal-media-wrap');
   const posterZoomModal = document.getElementById('poster-zoom-modal');
   const posterZoomImg = document.getElementById('poster-zoom-img');
@@ -959,7 +959,7 @@ cctv-insight/
     playSound('click');
   };
 
-  // Interactive Project Category Filter Engine
+  // Category filter
   const initProjectFilter = () => {
     const filterTabs = document.querySelectorAll('.filter-tab');
     const projectCards = document.querySelectorAll('.project-card');
