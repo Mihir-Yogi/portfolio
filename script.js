@@ -59,7 +59,7 @@
       githubUrl: 'https://github.com/Mihir-Yogi/CCTV-Insight-',
       tabs: {
         overview: `
-          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 12px;">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 14px;">
             <span style="background: rgba(6, 182, 212, 0.15); border: 1px solid #06b6d4; color: #22d3ee; font-size: 0.72rem; font-weight: 800; padding: 3px 10px; border-radius: 999px;">● AI SYSTEM COMPLETED</span>
             <span style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); color: #d1d5db; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 999px;">MONOREPO ARCHITECTURE</span>
             <a href="https://github.com/Mihir-Yogi/CCTV-Insight-" target="_blank" rel="noopener" style="background: #24292f; border: 1px solid rgba(255, 255, 255, 0.25); color: #ffffff; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
@@ -67,62 +67,86 @@
               github.com/Mihir-Yogi/CCTV-Insight- ↗
             </a>
           </div>
-          <p style="margin-bottom: 10px; font-size: 1.05rem; color: #ffffff; line-height: 1.4;"><strong>"Find the moment. Skip the hours."</strong></p>
-          <p style="margin-bottom: 14px; line-height: 1.6; color: #d1d5db;">CCTV Insight is an intelligent security operations center (SOC) web application built to eliminate the tedious hours spent reviewing long surveillance footage. By processing CCTV recordings through computer vision and temporal event aggregation, the system pinpoints critical events and plots them onto an interactive multi-track timeline for instant frame-accurate seeking.</p>
-          
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(6, 182, 212, 0.25); border-radius: 12px; padding: 14px; margin-bottom: 14px;">
-            <div style="font-size: 0.76rem; font-weight: 800; color: #22d3ee; margin-bottom: 10px; letter-spacing: 0.08em; text-transform: uppercase;">Key SOC Capabilities:</div>
-            <ul style="padding-left: 18px; margin: 0; font-size: 0.86rem; line-height: 1.65; color: #d1d5db;">
-              <li><strong>Interactive Multi-Track AI Timeline:</strong> Visualizes events chronologically across multi-hour footage with zoom (1x to 10x) and hover preview tooltips.</li>
-              <li><strong>Frame-Accurate Video Player:</strong> Custom SOC player featuring frame-by-frame stepping, variable playback speed (0.25x - 8x), bounding box overlays, and timecode readouts (HH:MM:SS:FF).</li>
-              <li><strong>Smart Event Filtering:</strong> Instant filtering by event class (Person, Vehicle, Zone Entry, Zone Exit, Multi-Person, Movement), time ranges, and confidence thresholds.</li>
-              <li><strong>Custom Security Zones:</strong> Interactive polygon and rectangular zone creation on the video canvas for intrusion and perimeter surveillance.</li>
-              <li><strong>SOC Executive Dashboard:</strong> Real-time activity analytics, detection breakdown charts, active queue monitors, and processing metrics.</li>
-              <li><strong>Configurable Frame Sampling:</strong> Optimized analysis through configurable FPS sampling (1, 2, 5, 10 FPS).</li>
+
+          <div style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.12), rgba(0, 0, 0, 0.4)); border-left: 3px solid #06b6d4; border-radius: 8px; padding: 12px 14px; margin-bottom: 14px;">
+            <p style="font-size: 0.98rem; font-weight: 700; color: #ffffff; margin: 0 0 4px 0;">"Find the moment. Skip the hours."</p>
+            <p style="font-size: 0.84rem; color: #cbd5e1; margin: 0; line-height: 1.5;">Traditional security monitoring forces operators to sit through hours of static video to find a 10-second incident. CCTV Insight automates video forensic investigation by converting raw surveillance recordings into searchable, indexed event intelligence.</p>
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            <div style="font-size: 0.74rem; font-weight: 800; color: #22d3ee; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px;">How It Works:</div>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 8px;">
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 10px 12px;">
+                <span style="color: #06b6d4; font-weight: 800; font-size: 0.78rem;">01. Ingestion & Frame Sampling:</span>
+                <p style="font-size: 0.82rem; color: #9ca3af; margin: 2px 0 0 0; line-height: 1.45;">Uploads high-density surveillance video and runs configurable FPS sampling (1–10 FPS) via OpenCV to maximize throughput without GPU bottlenecking.</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 10px 12px;">
+                <span style="color: #38bdf8; font-weight: 800; font-size: 0.78rem;">02. Neural Object & Perimeter Detection:</span>
+                <p style="font-size: 0.82rem; color: #9ca3af; margin: 2px 0 0 0; line-height: 1.45;">YOLOv8 detects entities (people, vehicles) in real-time while spatial algorithms monitor custom polygon security zones for perimeter breaches.</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 10px 12px;">
+                <span style="color: #34d399; font-weight: 800; font-size: 0.78rem;">03. Multi-Track Timeline & Instant Seeking:</span>
+                <p style="font-size: 0.82rem; color: #9ca3af; margin: 2px 0 0 0; line-height: 1.45;">Every detected event is tagged onto a zoomable timeline. Investigators click any thumbnail preview to jump straight to the exact second of the event.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 10px; padding: 14px;">
+            <div style="font-size: 0.74rem; font-weight: 800; color: #22d3ee; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px;">Forensic Toolset & Features:</div>
+            <ul style="padding-left: 18px; margin: 0; font-size: 0.84rem; line-height: 1.6; color: #d1d5db;">
+              <li><strong>Interactive Multi-Track AI Timeline:</strong> Chronological visual tracks with 1x–10x zoom, event density heatmaps, and hover preview thumbnails.</li>
+              <li><strong>Frame-Accurate Video Player:</strong> Custom player with step-by-step frame stepping, speed control from 0.25x slow-mo to 8x rapid scan, and timecodes (HH:MM:SS:FF).</li>
+              <li><strong>Interactive Canvas Security Zones:</strong> Draw polygon or rectangular tripwires directly over any camera feed to flag zone entries and exits.</li>
+              <li><strong>Smart Multi-Class Filtering:</strong> Instant search by entity type (Person, Vehicle, Multi-Person), confidence threshold, or custom time windows.</li>
+              <li><strong>SOC Telemetry Dashboard:</strong> Real-time analytics, event frequency charts, queue monitors, and activity breakdown.</li>
             </ul>
           </div>
         `,
         tech: `
-          <p style="margin-bottom: 12px; font-size: 0.95rem; color: #ffffff;"><strong>Modern Full-Stack & Computer Vision Architecture:</strong></p>
+          <p style="margin-bottom: 12px; font-size: 0.95rem; color: #ffffff;"><strong>Full-Stack Architecture & Computer Vision Stack:</strong></p>
           <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px;">
-            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px;">
-              <div style="color: #22d3ee; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">Frontend Layer</div>
-              <div style="color: #ffffff; font-size: 0.88rem; font-weight: 600;">React 19 • TypeScript • Vite • Tailwind CSS • Lucide React • Recharts • React Router</div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(6, 182, 212, 0.25); border-radius: 10px; padding: 12px;">
+              <div style="color: #22d3ee; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">Frontend Investigation Studio</div>
+              <div style="color: #ffffff; font-size: 0.88rem; font-weight: 600; margin-bottom: 4px;">React 19 • TypeScript • Vite • Tailwind CSS • Recharts • Lucide Icons</div>
+              <p style="font-size: 0.78rem; color: #9ca3af; margin: 0; line-height: 1.45;">Interactive canvas layer for drawing security zones, custom timeline scrubber component, state-synchronized video controls, and responsive SOC telemetry charts.</p>
             </div>
-            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px;">
-              <div style="color: #38bdf8; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">Backend & API Layer</div>
-              <div style="color: #ffffff; font-size: 0.88rem; font-weight: 600;">Python 3.14 • FastAPI • Pydantic v2 • Uvicorn • Async Task Workers</div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 10px; padding: 12px;">
+              <div style="color: #38bdf8; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">Backend & High-Performance API</div>
+              <div style="color: #ffffff; font-size: 0.88rem; font-weight: 600; margin-bottom: 4px;">Python 3.14 • FastAPI • Pydantic v2 • Uvicorn • Async Background Workers</div>
+              <p style="font-size: 0.78rem; color: #9ca3af; margin: 0; line-height: 1.45;">Asynchronous task queue for parallel video processing, chunked video serving, and REST endpoints for zone configurations and telemetry queries.</p>
             </div>
-            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px;">
-              <div style="color: #34d399; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">Database & Storage</div>
-              <div style="color: #ffffff; font-size: 0.88rem; font-weight: 600;">MongoDB Atlas / Local MongoDB • PyMongo • Chunked Storage Engine</div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(244, 63, 94, 0.25); border-radius: 10px; padding: 12px;">
+              <div style="color: #f43f5e; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">Computer Vision & Neural Inference Engine</div>
+              <div style="color: #ffffff; font-size: 0.88rem; font-weight: 600; margin-bottom: 4px;">Ultralytics YOLOv8 • OpenCV • FFmpeg • DetectionEngine Abstraction</div>
+              <p style="font-size: 0.78rem; color: #9ca3af; margin: 0; line-height: 1.45;">Object detection with confidence scoring, polygon spatial containment checks for zone breaches, and frame-accurate metadata generation.</p>
             </div>
-            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px;">
-              <div style="color: #f43f5e; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">Computer Vision & Neural Pipeline</div>
-              <div style="color: #ffffff; font-size: 0.88rem; font-weight: 600;">OpenCV • Ultralytics YOLOv8 • DetectionEngine Abstraction • FFmpeg</div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(52, 211, 153, 0.25); border-radius: 10px; padding: 12px;">
+              <div style="color: #34d399; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 4px;">Database & Storage Layer</div>
+              <div style="color: #ffffff; font-size: 0.88rem; font-weight: 600; margin-bottom: 4px;">MongoDB Atlas • PyMongo • Chunked Video Storage</div>
+              <p style="font-size: 0.78rem; color: #9ca3af; margin: 0; line-height: 1.45;">Document storage for timestamped event streams, zone coordinates, detection confidence intervals, and video metadata.</p>
             </div>
           </div>
         `,
         structure: `
-          <div style="margin-bottom: 12px;">
+          <div style="margin-bottom: 14px;">
             <div style="color: #22d3ee; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; margin-bottom: 8px;">Monorepo Project Layout:</div>
             <pre style="background: #060609; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; font-family: var(--font-code); font-size: 0.75rem; color: #a5f3fc; line-height: 1.45; overflow-x: auto;">
 cctv-insight/
-├── frontend/                     # React + Vite SOC Investigation Interface
+├── frontend/                     # React 19 + Vite SOC Investigation Studio
 │   ├── src/
-│   │   ├── components/           # Player, timeline, events, custom zones
+│   │   ├── components/           # Multi-track timeline, video player, zone canvas
 │   │   ├── pages/                # Dashboard, VideoLibrary, Upload, Investigation
-│   │   ├── services/             # MockData & Storage engine
-│   │   ├── types/                # Strict TypeScript schemas
-│   │   └── utils/                # Timecode formatters & theme tokens
-├── backend/                      # FastAPI API server & CV Worker
+│   │   ├── services/             # API client & local chunk caching
+│   │   ├── types/                # Strict TypeScript event schemas
+│   │   └── utils/                # Timecode formatters & canvas math
+├── backend/                      # FastAPI API server & Computer Vision workers
 ├── storage/                      # Video uploads, processed chunks & thumbnails
-├── docs/                         # Architecture & API specifications
+├── docs/                         # Architecture specs & detection pipeline guides
 └── README.md</pre>
           </div>
           <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px;">
-            <div style="color: #ffffff; font-weight: 700; font-size: 0.8rem; margin-bottom: 4px;">⚖️ Licensing & Attribution</div>
-            <p style="font-size: 0.78rem; color: #9ca3af; line-height: 1.5; margin: 0;">Developed as an educational & academic project. Ultralytics YOLO: AGPL-3.0; OpenCV: Apache 2.0; FFmpeg: LGPL 2.1+ / GPL 2+.</p>
+            <div style="color: #ffffff; font-weight: 700; font-size: 0.8rem; margin-bottom: 4px;">⚖️ Open Source Attribution</div>
+            <p style="font-size: 0.78rem; color: #9ca3af; line-height: 1.5; margin: 0;">Academic & portfolio project. Built with Ultralytics YOLO (AGPL-3.0), OpenCV (Apache 2.0), and FFmpeg (LGPL 2.1+ / GPL 2+).</p>
           </div>
         `
       }
@@ -368,35 +392,92 @@ cctv-insight/
     requestAnimationFrame(updateLoop);
   };
 
-  // Preload assets
-  const preloadImages = () => {
-    for (let i = 0; i < FRAME_COUNT; i++) {
+  // Progressive asset preloader
+  const dismissLoader = () => {
+    if (!loader || loader.classList.contains('loaded')) return;
+    if (loaderBar) loaderBar.style.width = '100%';
+    if (loaderPercent) loaderPercent.textContent = '100%';
+    setTimeout(() => {
+      loader.classList.add('loaded');
+    }, 80);
+  };
+
+  const loadSingleFrame = (index) => {
+    return new Promise((resolve) => {
+      if (images[index] && images[index].complete && images[index].naturalWidth > 0) {
+        resolve(images[index]);
+        return;
+      }
       const img = new Image();
-      img.src = getFramePath(i);
-
+      img.decoding = 'async';
+      img.src = getFramePath(index);
       img.onload = () => {
-        images[i] = img;
+        images[index] = img;
         loadedCount++;
-        const percent = Math.floor((loadedCount / FRAME_COUNT) * 100);
-        if (loaderBar) loaderBar.style.width = `${percent}%`;
-        if (loaderPercent) loaderPercent.textContent = `${percent}%`;
-
-        if (i === 0 && !firstFrameLoaded) {
+        if (index === 0 && !firstFrameLoaded) {
           firstFrameLoaded = true;
           drawFrame(0);
         }
-
-        if (loadedCount >= FRAME_COUNT) {
-          setTimeout(() => {
-            if (loader) loader.classList.add('loaded');
-          }, 150);
-        }
+        resolve(img);
       };
-
       img.onerror = () => {
         loadedCount++;
+        resolve(null);
       };
-    }
+    });
+  };
+
+  const preloadImages = () => {
+    if (loaderBar) loaderBar.style.width = '50%';
+    if (loaderPercent) loaderPercent.textContent = '50%';
+
+    // Safety fallback: Never keep the visitor waiting longer than 300ms
+    const safetyTimer = setTimeout(() => {
+      dismissLoader();
+    }, 300);
+
+    // Tier 1: Load Initial Hero Frames immediately
+    Promise.all([loadSingleFrame(0), loadSingleFrame(1), loadSingleFrame(2)]).then(() => {
+      clearTimeout(safetyTimer);
+      dismissLoader();
+
+      // Tier 2: Preload Keyframe Spine across the scroll spectrum (every 5th frame)
+      const keyframes = [];
+      for (let k = 3; k < FRAME_COUNT; k += 5) {
+        keyframes.push(k);
+      }
+      keyframes.push(FRAME_COUNT - 1);
+
+      const loadChunked = (indices, onComplete) => {
+        let cursor = 0;
+        const processNext = () => {
+          if (cursor >= indices.length) {
+            if (onComplete) onComplete();
+            return;
+          }
+          const batch = indices.slice(cursor, cursor + 6);
+          cursor += 6;
+          Promise.all(batch.map(loadSingleFrame)).then(() => {
+            if (window.requestIdleCallback) {
+              requestIdleCallback(processNext, { timeout: 120 });
+            } else {
+              setTimeout(processNext, 20);
+            }
+          });
+        };
+        processNext();
+      };
+
+      // Stream Tier 2 keyframes in background
+      loadChunked(keyframes, () => {
+        // Tier 3: Infill remaining intermediate frames during idle cycles
+        const remaining = [];
+        for (let r = 0; r < FRAME_COUNT; r++) {
+          if (!images[r]) remaining.push(r);
+        }
+        loadChunked(remaining);
+      });
+    });
   };
 
   // Audio effects

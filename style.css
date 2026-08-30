@@ -124,12 +124,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s ease;
+  transition: opacity 0.35s ease-out, visibility 0.35s ease;
 }
 
 .loader.loaded {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
 }
 
 .loader-content {
@@ -637,6 +638,8 @@ body {
 /* Section utilities & reveal animations */
 .section-container {
   padding: 90px 0;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
 }
 
 .reveal-item {
