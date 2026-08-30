@@ -21,6 +21,7 @@
   const modalCategory = document.getElementById('modal-category');
   const modalDesc = document.getElementById('modal-desc');
   const modalLiveBtn = document.getElementById('modal-live-btn');
+  const modalGithubBtn = document.getElementById('modal-github-btn');
   const modalClose = document.querySelector('.modal-close');
   const modalBackdrop = document.querySelector('.modal-backdrop');
 
@@ -55,11 +56,16 @@
       category: 'AI-POWERED FORENSIC VIDEO INVESTIGATION PLATFORM',
       img: 'assets/cctv_insight.jpg',
       liveUrl: '',
+      githubUrl: 'https://github.com/Mihir-Yogi/CCTV-Insight-',
       tabs: {
         overview: `
           <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 12px;">
             <span style="background: rgba(6, 182, 212, 0.15); border: 1px solid #06b6d4; color: #22d3ee; font-size: 0.72rem; font-weight: 800; padding: 3px 10px; border-radius: 999px;">● AI SYSTEM COMPLETED</span>
             <span style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); color: #d1d5db; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 999px;">MONOREPO ARCHITECTURE</span>
+            <a href="https://github.com/Mihir-Yogi/CCTV-Insight-" target="_blank" rel="noopener" style="background: #24292f; border: 1px solid rgba(255, 255, 255, 0.25); color: #ffffff; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              github.com/Mihir-Yogi/CCTV-Insight- ↗
+            </a>
           </div>
           <p style="margin-bottom: 10px; font-size: 1.05rem; color: #ffffff; line-height: 1.4;"><strong>"Find the moment. Skip the hours."</strong></p>
           <p style="margin-bottom: 14px; line-height: 1.6; color: #d1d5db;">CCTV Insight is an intelligent security operations center (SOC) web application built to eliminate the tedious hours spent reviewing long surveillance footage. By processing CCTV recordings through computer vision and temporal event aggregation, the system pinpoints critical events and plots them onto an interactive multi-track timeline for instant frame-accurate seeking.</p>
@@ -635,22 +641,27 @@ cctv-insight/
             <div style="color:#22d3ee; font-weight:700;">[FEATURED ENGINEERING PROJECTS]</div>
             1. <strong>CCTV INSIGHT 👁️</strong> (YOLOv8, OpenCV, FastAPI, React 19, MongoDB, Docker)<br>
                <em>AI-powered forensic video investigation platform for high-density CCTV footage.</em><br>
+               <span style="color:#9ca3af;">Repo: <a href="https://github.com/Mihir-Yogi/CCTV-Insight-" target="_blank" style="color:#38bdf8; text-decoration:underline;">github.com/Mihir-Yogi/CCTV-Insight-</a></span><br>
             2. <strong>SUNO CAMPUS PLATFORM</strong> (React, Node, Express, MongoDB, JWT)<br>
                <em>A centralized campus event management portal with role-based access.</em><br>
+               <span style="color:#9ca3af;">Live: <a href="https://suno-campus.vercel.app" target="_blank" style="color:var(--primary-red); text-decoration:underline;">suno-campus.vercel.app</a></span><br>
             3. <strong>CAMOPS — OPERATIONS DESK (CIMS)</strong> (React, Node.js, MongoDB, Chart.js)<br>
-               <em>CCTV equipment tracking, inventory management, and automated alert workflow.</em>
+               <em>CCTV equipment tracking, inventory management, and automated alert workflow.</em><br>
+               <span style="color:#9ca3af;">Live: <a href="https://cctvtracker.netlify.app/" target="_blank" style="color:#22c55e; text-decoration:underline;">cctvtracker.netlify.app</a></span>
           `);
           break;
 
         case 'cctv':
         case 'cctv-insight':
           printToTerminal(`
-            <div style="color:#22d3ee; font-weight:700;">[LAUNCHING CCTV INSIGHT INTEL]</div>
-            Opening CCTV Insight forensic investigation studio...
+            <div style="color:#22d3ee; font-weight:700;">[CCTV INSIGHT 👁️ — AI FORENSICS PLATFORM]</div>
+            • <strong>Repository:</strong> <a href="https://github.com/Mihir-Yogi/CCTV-Insight-" target="_blank" style="color:#38bdf8; text-decoration:underline;">https://github.com/Mihir-Yogi/CCTV-Insight-</a><br>
+            • <strong>Stack:</strong> React 19, TypeScript, Tailwind, Python 3.14, FastAPI, OpenCV, YOLOv8, MongoDB<br>
+            Opening investigation studio modal...
           `);
           setTimeout(() => {
             openModal('cctv');
-          }, 350);
+          }, 400);
           break;
 
         case 'education':
@@ -942,6 +953,15 @@ cctv-insight/
         modalLiveBtn.style.display = 'inline-flex';
       } else {
         modalLiveBtn.style.display = 'none';
+      }
+    }
+
+    if (modalGithubBtn) {
+      if (data.githubUrl) {
+        modalGithubBtn.href = data.githubUrl;
+        modalGithubBtn.style.display = 'inline-flex';
+      } else {
+        modalGithubBtn.style.display = 'none';
       }
     }
 
