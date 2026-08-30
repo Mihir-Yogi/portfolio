@@ -1775,10 +1775,9 @@ body.modal-open .terminal-floating-btn {
   background: rgba(13, 13, 18, 0.96);
   backdrop-filter: blur(12px);
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
-  z-index: 5;
+  gap: 12px;
+  z-index: 10;
 }
 
 .modal-live-btn {
@@ -1788,10 +1787,10 @@ body.modal-open .terminal-floating-btn {
   background: #16a34a;
   color: #ffffff;
   font-family: var(--font-sans);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
-  padding: 9px 16px;
+  letter-spacing: 0.05em;
+  padding: 10px 20px;
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -1812,10 +1811,10 @@ body.modal-open .terminal-floating-btn {
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.22);
   font-family: var(--font-sans);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
-  padding: 9px 16px;
+  letter-spacing: 0.05em;
+  padding: 10px 20px;
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -1830,7 +1829,7 @@ body.modal-open .terminal-floating-btn {
   box-shadow: 0 6px 20px rgba(56, 189, 248, 0.25);
 }
 
-.modal-poster-action-btn {
+.modal-cta-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1838,32 +1837,10 @@ body.modal-open .terminal-floating-btn {
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.18);
   font-family: var(--font-sans);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
-  padding: 9px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.modal-poster-action-btn:hover {
-  background: rgba(var(--primary-rgb), 0.2);
-  border-color: var(--primary-red);
-  transform: translateY(-2px);
-}
-
-.modal-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  padding: 9px 16px;
+  letter-spacing: 0.05em;
+  padding: 10px 20px;
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -2421,10 +2398,11 @@ body.modal-open .terminal-floating-btn {
   }
 
   /* Mobile modal */
+  /* Mobile modal */
   .modal-card {
     grid-template-columns: 1fr;
-    height: 92vh;
-    max-height: 92vh;
+    height: 90vh;
+    max-height: 90vh;
     border-radius: 16px;
     overflow: hidden;
     display: flex;
@@ -2434,8 +2412,8 @@ body.modal-open .terminal-floating-btn {
   .modal-media-pane {
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    height: 205px;
-    min-height: 205px;
+    height: 190px;
+    min-height: 190px;
     padding: 10px;
     flex-shrink: 0;
     position: relative;
@@ -2465,6 +2443,7 @@ body.modal-open .terminal-floating-btn {
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
     white-space: nowrap;
+    z-index: 3;
   }
 
   .mobile-poster-btn:active {
@@ -2473,9 +2452,10 @@ body.modal-open .terminal-floating-btn {
   }
 
   .modal-info-pane {
-    height: auto;
+    height: 0;
+    min-height: 0;
+    flex: 1 1 auto;
     overflow: hidden;
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
   }
@@ -2492,9 +2472,10 @@ body.modal-open .terminal-floating-btn {
   }
 
   .modal-info-scroll {
-    padding: 16px 18px 14px 18px;
+    padding: 14px 16px 24px 16px;
     overflow-y: auto;
-    flex-grow: 1;
+    flex: 1 1 auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .modal-title {
@@ -2505,22 +2486,36 @@ body.modal-open .terminal-floating-btn {
   .modal-footer-sticky {
     position: sticky;
     bottom: 0;
-    padding: 12px 16px;
-    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    padding: 10px 14px;
+    padding-bottom: max(12px, env(safe-area-inset-bottom, 12px));
+    background: rgba(10, 10, 14, 0.98);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     gap: 8px;
     flex-shrink: 0;
+    z-index: 10;
   }
 
-  .modal-footer-sticky a,
-  .modal-footer-sticky button {
-    flex: 1 1 calc(50% - 6px);
+  .modal-footer-sticky a {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    font-size: 0.74rem;
-    padding: 9px 8px;
+    gap: 6px;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding: 0 10px;
+    border-radius: 8px;
     text-align: center;
     white-space: nowrap;
+    text-decoration: none;
+    box-sizing: border-box;
   }
 
   #animation-canvas {

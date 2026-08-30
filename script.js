@@ -1115,7 +1115,7 @@ cctv-insight/
     });
 
     const mobileExpandPosterBtn = document.getElementById('mobile-expand-poster-btn');
-    const modalPosterViewBtn = document.getElementById('modal-poster-view-btn');
+    const modalContactBtn = document.getElementById('modal-contact-btn');
 
     if (modalMediaWrap) {
       modalMediaWrap.addEventListener('click', openPosterZoom);
@@ -1126,10 +1126,9 @@ cctv-insight/
         openPosterZoom();
       });
     }
-    if (modalPosterViewBtn) {
-      modalPosterViewBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        openPosterZoom();
+    if (modalContactBtn) {
+      modalContactBtn.addEventListener('click', () => {
+        closeModal();
       });
     }
 
